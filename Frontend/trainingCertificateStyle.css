@@ -1,0 +1,25 @@
+/* trainingCertificate-wrapper */
+.trainingCertificate-wrapper {
+	background: var(--content_background_color);
+	color: var(--content_headings);
+	width: auto;
+	padding: 30px 40px;
+}
+
+/* trainingCertificate-form */
+.trainingCertificate-form > * {
+    margin: 5px;
+}
+
+/* trainingCertificateTable */
+.trainingCertificateTable tr td {
+	align-items: center;
+}
+
+.tableWeekDay {
+	writing-mode: vertical-rl;
+}
+
+.trainingCertificateTable tr td input {
+	border: 0px;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="mainStyle.css">
+   <link rel="stylesheet" href="trainingCertificateStyle.css">
+   <style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+   <body>
+      <div class="trainingCertificate-wrapper">
+         <form id="trainingCertificateForm" class="trainingCertificate-form">
+            <label for="studentName">Name des/der Auszubildenen:</label>
+            <input type="text" id="studentName" value="Adrian Zubi" readonly>
+            <div class="flexbox">
+                <label for="trainingYear">Ausbildungsjahr:</label>
+                <input type="text" id="trainingYear" value="3">
+                <label for="department">Name des/der Auszubildenen:</label>
+                <input type="text" id="department" value="IT">
+            </div>
+            <div class="flexbox">
+                <label for="trainingWeekStart">Ausbildungswoche vom:</label>
+                <input type="date" id="trainingWeekStart" value="2023-01-12">
+                <label for="trainingWeekEnd">bis:</label>
+                <input type="date" id="trainingWeekEnd" value="2023-01-18">
+            </div>
+            <table class="trainingCertificateTable" style="width: 100%;">
+                <colgroup>
+                  <col span="1" style="background-color: #D6EEEE">
+                </colgroup>
+                <tr>
+                  <th></th>
+                  <th>Ausgeführte Arbeiten, Unterricht usw.</th>
+                  <th>Einzelstunden</th>
+                  <th>Gesamtstunden</th>
+                  <th>Abteilung</th>
+                </tr>
+                <tr>
+                  <td class="tableWeekDay">Montag</td>
+                  <td>
+                    <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
+                  </td>
+                  <td>
+                    <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
+                  </td>
+                  <td>
+                    <input type="number">
+                  </td>
+                  <td>
+                    <input type="text">
+                  </td>
+                </tr>
+                <tr>
+                <td class="tableWeekDay">Dienstag</td>
+                <td>
+                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
+                </td>
+                <td>
+                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
+                </td>
+                <td>
+                  <input type="number">
+                </td>
+                <td>
+                  <input type="text">
+                </td>
+                </tr>
+                <tr>
+                <td class="tableWeekDay">Mittwoch</td>
+                <td>
+                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
+                </td>
+                <td>
+                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
+                </td>
+                <td>
+                  <input type="number">
+                </td>
+                <td>
+                  <input type="text">
+                </td>
+                </tr>
+                <tr>
+                <td class="tableWeekDay">Donnerstag</td>
+                <td>
+                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
+                </td>
+                <td>
+                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
+                </td>
+                <td>
+                  <input type="number">
+                </td>
+                <td>
+                  <input type="text">
+                </td>
+                </tr>
+                <tr>
+                <td class="tableWeekDay">Freitag</td>
+                <td>
+                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
+                </td>
+                <td>
+                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
+                </td>
+                <td>
+                  <input type="number">
+                </td>
+                <td>
+                  <input type="text">
+                </td>
+                </tr>
+                <tr>
+                <td class="tableWeekDay">Samstag</td>
+                <td>
+                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
+                </td>
+                <td>
+                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
+                </td>
+                <td>
+                  <input type="number">
+                </td>
+                <td>
+                  <input type="text">
+                </td>
+                </tr>
+                </table>
+            <div class="flexbox">
+                <button type="submit" class="btn">Senden und Abschicken</button>
+                <button type="submit" class="btn">Speichern</button>
+                <button type="submit" class="btn">Abbrechen</button>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
