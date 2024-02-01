@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Person (
   idPerson INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(32) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  passwordHash VARCHAR(32) NOT NULL,
-  vorname VARCHAR(32) NOT NULL,
-  nachname VARCHAR(32) NOT NULL,
+  passwordHash VARCHAR(255) NOT NULL,
+  vorname VARCHAR(255) NOT NULL,
+  nachname VARCHAR(255) NOT NULL,
   rolle INT(1) NOT NULL COMMENT '1 = Pruefer/Lehrer; 2 = Ausbilder; 3 = Auszubildener',
   
   -- PK
@@ -32,10 +32,10 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Person (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Eintrag (
   idEintrag INT NOT NULL AUTO_INCREMENT,
-  ausgefuerteArbeit VARCHAR(45) NOT NULL,
-  einzelStunden VARCHAR(45) NOT NULL,
+  ausgefuerteArbeit VARCHAR(255) NOT NULL,
+  einzelStunden VARCHAR(255) NOT NULL,
   gesamtStunden INT NOT NULL,
-  abteilung VARCHAR(45) NOT NULL,
+  abteilung VARCHAR(255) NOT NULL,
   
   -- PK
   PRIMARY KEY (idEintrag)
@@ -49,9 +49,9 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Ausbildung (
   idAusbildung INT UNSIGNED NOT NULL AUTO_INCREMENT,
   auszubildenerId INT NOT NULL,
   ausbilderId INT NOT NULL,
-  beruf VARCHAR(45) NOT NULL,
+  beruf VARCHAR(255) NOT NULL,
   startZeitpunkt DATE NOT NULL,
-  endZeitpunkt VARCHAR(45) NULL,
+  endZeitpunkt DATE NULL,
   
   -- PK
   PRIMARY KEY (idAusbildung),
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Ausbildung (
 CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Nachweis (
   idNachweis INT NOT NULL AUTO_INCREMENT,
   auszubildenerId INT NOT NULL,
-  ggfAusbildungsAbteilung VARCHAR(45) NULL,
+  ggfAusbildungsAbteilung VARCHAR(255) NULL,
   startAusbildungswoche DATE NOT NULL,
   eintragMontagId INT NOT NULL,
   eintagDienstagId INT NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Quittierung (
   idQuittierung INT NOT NULL AUTO_INCREMENT,
   nachweisId INT NOT NULL,
   quittiert TINYINT NOT NULL,
-  kommentar VARCHAR(45) NULL,
+  kommentar VARCHAR(1000) NULL,
   
   -- PK
   PRIMARY KEY (idQuittierung),
