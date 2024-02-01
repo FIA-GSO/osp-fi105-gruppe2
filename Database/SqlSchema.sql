@@ -18,10 +18,10 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Person (
   idPerson INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(32) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  passwordHash VARCHAR(255) NOT NULL,
-  vorname VARCHAR(255) NOT NULL,
-  nachname VARCHAR(255) NOT NULL,
-  rolle INT(1) NOT NULL COMMENT '1 = Pruefer/Lehrer; 2 = Ausbilder; 3 = Auszubildener',
+  passwordHash VARCHAR(32) NOT NULL,
+  vorname VARCHAR(32) NOT NULL,
+  nachname VARCHAR(32) NOT NULL,
+  rolle INT(1) NOT NULL COMMENT '1 = Pruefer/Lehrer; 2 = Ausbilder; 3 = auszubildender',
   
   -- PK
   PRIMARY KEY (idPerson)
@@ -32,10 +32,10 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Person (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Eintrag (
   idEintrag INT NOT NULL AUTO_INCREMENT,
-  ausgefuerteArbeit VARCHAR(255) NOT NULL,
-  einzelStunden VARCHAR(255) NOT NULL,
-  gesamtStunden INT NOT NULL,
-  abteilung VARCHAR(255) NOT NULL,
+  ausgefuerteArbeit VARCHAR(45) NOT NULL,
+  einzelStunden VARCHAR(45) NOT NULL,
+  gesamtStunden INT(2) NOT NULL,
+  abteilung VARCHAR(45) NOT NULL,
   
   -- PK
   PRIMARY KEY (idEintrag)
@@ -47,17 +47,17 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Eintrag (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Ausbildung (
   idAusbildung INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  auszubildenerId INT NOT NULL,
+  auszubildenderId INT NOT NULL,
   ausbilderId INT NOT NULL,
-  beruf VARCHAR(255) NOT NULL,
+  beruf VARCHAR(45) NOT NULL,
   startZeitpunkt DATE NOT NULL,
-  endZeitpunkt DATE NULL,
+  endZeitpunkt VARCHAR(45) NULL,
   
   -- PK
   PRIMARY KEY (idAusbildung),
   
   -- FK
-  FOREIGN KEY (auszubildenerId) REFERENCES digitalisierungAusbildungsnachweis.Person (idPerson) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY (auszubildenderId) REFERENCES digitalisierungAusbildungsnachweis.Person (idPerson) ON DELETE NO ACTION ON UPDATE NO ACTION,
   FOREIGN KEY (ausbilderId) REFERENCES digitalisierungAusbildungsnachweis.Person (idPerson) ON DELETE NO ACTION ON UPDATE NO ACTION
   );
 
@@ -67,8 +67,9 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Ausbildung (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Nachweis (
   idNachweis INT NOT NULL AUTO_INCREMENT,
-  auszubildenerId INT NOT NULL,
-  ggfAusbildungsAbteilung VARCHAR(255) NULL,
+  zurQuittierung TINYINT NOT NULL,
+  auszubildenderId INT NOT NULL,
+  ggfAusbildungsAbteilung VARCHAR(45) NULL,
   startAusbildungswoche DATE NOT NULL,
   eintragMontagId INT NOT NULL,
   eintagDienstagId INT NOT NULL,
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Nachweis (
   PRIMARY KEY (idNachweis),
   
   -- FK Azubi
-  FOREIGN KEY (auszubildenerId) REFERENCES digitalisierungAusbildungsnachweis.Person (idPerson) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY (auszubildenderId) REFERENCES digitalisierungAusbildungsnachweis.Person (idPerson) ON DELETE NO ACTION ON UPDATE NO ACTION,
     
   -- FK Eintraege
   FOREIGN KEY (eintragMontagId) REFERENCES digitalisierungAusbildungsnachweis.Eintrag (idEintrag) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -100,7 +101,7 @@ CREATE TABLE IF NOT EXISTS digitalisierungAusbildungsnachweis.Quittierung (
   idQuittierung INT NOT NULL AUTO_INCREMENT,
   nachweisId INT NOT NULL,
   quittiert TINYINT NOT NULL,
-  kommentar VARCHAR(1000) NULL,
+  kommentar VARCHAR(45) NULL,
   
   -- PK
   PRIMARY KEY (idQuittierung),

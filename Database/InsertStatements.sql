@@ -38,7 +38,7 @@ VALUES
 ('Produktentwicklung\nProjektmanagement', '1\n7', 8, 'Entwicklung');
 
 -- Beispiel-Inserts für Ausbildung-Tabelle
-INSERT INTO digitalisierungAusbildungsnachweis.Ausbildung (auszubildenerId, ausbilderId, beruf, startZeitpunkt, endZeitpunkt)
+INSERT INTO digitalisierungAusbildungsnachweis.Ausbildung (auszubildenderId, ausbilderId, beruf, startZeitpunkt, endZeitpunkt)
 VALUES
 (1, 8, 'Softwareentwicklung', '2023-01-01', '2026-01-01'),
 (2, 8, 'Projektmanagement', '2023-02-01', '2026-02-01'),
@@ -49,25 +49,25 @@ VALUES
 (7, 9, 'Projektmanagement', '2023-02-01', '2026-02-01');
 
 -- Beispiel-Inserts für Nachweis-Tabelle
-INSERT INTO digitalisierungAusbildungsnachweis.Nachweis (auszubildenerId, ggfAusbildungsAbteilung, startAusbildungswoche, eintragMontagId, eintagDienstagId, eintagMittwochId, eintagDonnerstagId, eintragFreitagId)
+INSERT INTO digitalisierungAusbildungsnachweis.Nachweis (auszubildenderId, zurQuittierung, ggfAusbildungsAbteilung, startAusbildungswoche, eintragMontagId, eintagDienstagId, eintagMittwochId, eintagDonnerstagId, eintragFreitagId)
 VALUES
-(1, 'Abteilung1', '2024-01-01', 1, 6, 3, 4, 5),
-(1, 'Abeilung2', '2024-01-01', 1, 2, 3, 4, 5),
-(1, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
-(1, 'Abteilung1', '2024-01-01', 1, 12, 3, 9, 5),
-(1, 'Abteilung2', '2024-02-01', 2, 1, 20, 1, 8),
-(2, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
-(2, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
-(2, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
-(2, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
-(2, 'Abteilung2', '2024-02-01', 2, 1, 2, 1, 1),
-(3, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
-(4, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
-(5, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
-(6, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
-(7, 'Abteilung2', '2024-02-01', 2, 1, 2, 1, 1),
-(8, 'Abteilung3', '2024-02-15', 3, 2, 1, 3, 2),
-(9, 'Abteilung1', '2024-03-01', 2, 3, 1, 2, 3);
+(1, 1, 'Abteilung1', '2024-01-01', 1, 6, 3, 4, 5),
+(1, 1, 'Abeilung2', '2024-01-01', 1, 2, 3, 4, 5),
+(1, 1, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
+(1, 1, 'Abteilung1', '2024-01-01', 1, 12, 3, 9, 5),
+(1, 1, 'Abteilung2', '2024-02-01', 2, 1, 20, 1, 8),
+(2, 1, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
+(2, 1, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
+(2, 1, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
+(2, 1, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
+(2, 1, 'Abteilung2', '2024-02-01', 2, 1, 2, 1, 1),
+(3, 1, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
+(4, 0, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
+(5, 0, 'Abeilung2','2024-01-01', 1, 2, 3, 4, 5),
+(6, 0, 'Abteilung1', '2024-01-01', 1, 2, 3, 4, 5),
+(7, 0, 'Abteilung2', '2024-02-01', 2, 1, 2, 1, 1),
+(8, 0, 'Abteilung3', '2024-02-15', 3, 2, 1, 3, 2),
+(9, 0, 'Abteilung1', '2024-03-01', 2, 3, 1, 2, 3);
 
 -- Beispiel-Inserts für Quittierung-Tabelle
 INSERT INTO digitalisierungAusbildungsnachweis.Quittierung (nachweisId, quittiert, kommentar)
