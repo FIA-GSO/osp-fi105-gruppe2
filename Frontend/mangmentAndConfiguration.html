@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="mainStyle.css">
+   <link rel="stylesheet" href="mangmentAndConfigurationStyle.css">
+   <body>
+    <div class="mangmentAndConfiguration-wrapper">
+        <div class="createUser-wrapper">
+            <h1>Nutzer anlegen</h1>
+            <div class="flexbox">
+                <label for="firstName">Vorname:</label>
+                <input type="text" id="firstName" placeholder="Vorname angeben">
+                <label for="lastName">Nachname:</label>
+                <input type="text" id="lastName" placeholder="Nachname angeben">
+            </div>
+            <div class="flexbox">
+                <label for="email">E-Mail:</label>
+                <input type="text" id="email" placeholder="E-Mail angeben">
+                <label for="initialPassword">Vorname:</label>
+                <input type="text" id="initialPassword" placeholder="Passwort angeben">
+            </div>
+            <label for="role">Rolle:</label>
+            <select id="role">
+              <option value="auszubildener">Auszubildener</option>
+              <option value="ausbilder">Ausbilder</option>
+              <option value="LehrerPruefer">Lehrer / Prüfer</option>
+              <option value="administrator">Administrator</option>
+            </select>
+        <div class="btnBox">
+            <button class="btn">Speichern</button>
+        </div>
+      </div>
+      <div class="delteUser-wrapper">
+        <h1>Nutzer löschen</h1>
+        <label for="username">Nutzername:</label>
+        <input type="text" id="username" placeholder="Nutzername angeben">
+        <div class="btnBox">
+            <button class="btn">Löschen</button>
+        </div>
+    </div>
+    <div class="createTraining-wrapper">
+        <h1>Ausbildung anlegen</h1>
+        <div class="flexbox">
+            <label for="usernameInstructor">Nutzername von Ausbilder:</label>
+            <input type="text" id="usernameInstructor" placeholder="Nutzername von Ausbilder angeben">
+            <label for="usernameApprentice">Nutzername von Auszubildenen:</label>
+            <input type="text" id="usernameApprentice" placeholder="Nutzername von Auszubildenen angeben">
+        </div>
+        <div class="flexbox">
+            <label for="jobTitle">Berufsbezeichnung der Ausbildung:</label>
+            <input type="text" id="jobTitle" placeholder="Berufsbezeichnung angeben">
+            <label for="trainingStart">Beginn der Ausbildung:</label>
+            <input type="date" id="trainingStart">
+        </div>
+        <div class="btnBox">
+            <button class="btn">Speichern</button>
+        </div>
+    </div>
+    </div>
+   </body>
+</html>

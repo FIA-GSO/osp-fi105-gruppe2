@@ -1,0 +1,22 @@
+/* warpper */
+.createUser-wrapper, .delteUser-wrapper, .createTraining-wrapper {
+    background-color: var(--content_background_color);
+    width: auto;
+    padding: 30px 40px;
+    width: 90%;
+}
+
+/* Muss in mainStyle  Schauen ob das auch auf der Seite der nachweisepflege liegt*/
+/* btn */
+.btn {
+	width: 200px;
+	height: 30px;
+	margin: 3px;
+}
+
+/* btnBox */
+.btnBox {
+	display: flex;
+    justify-content: flex-end;
+}
+/* Muss in mainStyle */
