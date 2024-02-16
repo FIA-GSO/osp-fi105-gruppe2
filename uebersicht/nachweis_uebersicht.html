@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Übersicht | Ausbildungsnachweise</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Frontend/mainStyle.css">
+    <link rel="stylesheet" href="ubersicht_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js"></script>
 </head>
@@ -12,36 +13,37 @@
 <div class="overview-table_header">
         <div class="h1+bg">
             <div class="tableBackground">
+                <img width="393" height="150" src="https://www.gso-koeln.de/wp-content/uploads/2020/06/cropped-LOGO-GSO_neu.png" class="custom-logo-gso" alt="Georg-Simon-Ohm-Berufskolleg" decoding="async" fetchpriority="high">
                 <label>Übersicht deiner Ausbildungsnachweise</label>
                 <div class="buttons-config-div">
                     <form>
-                    <label for="search" class="suchfeld"></label>
-                    <input type="search" name="search_field" id="search" placeholder="Search..." >
+                         <label for="search" class="suchfeld"></label>
+                         <input type="search" name="search_field" id="search" placeholder="Search..." >
                         <button id= "search_button" class="search_field"><span>&#9947</span></button>
                     </form>
-                    <button class="Button-a">Button1</button>
-                    <button class="Button-a">Button2</button>
-                    <button class="Button-a">Button3</button>
+                    <button onclick="addTablerow()" class="Button-a">TEST_Neue_Reihe</button>
+                    <button class="Button-b">Button2</button>
+                    <button class="Button-c">Button3</button>
                 </div>
             </div>
                     <div class="Table_header">
-                        <table>
+                        <table id="table">
                                 <tr>
                                     <th scope="col">Name des Auszubildenden</th>
                                     <th scope="col">Name des Ausbilders</th>
                                     <th scope="col">Datum der Abgabe</th>
                                     <th scope="col">Status</th>
                                 </tr>
-                            <tr class="table-row-content">
-                                <td  id="name">Ben Louis Montag</td>
-                                <td  id="ausbilder">Ausbilder</td>
-                                <td id="date">Datum</td>
+                            <tr class="table-row-content" id="table-content">
+                                <td id="name">Ben Louis Montag</td>
+                                <td id="ausbilder">N.Heim</td>
+                                <td id="date">21.08.2023</td>
                                 <!--img for correct-->
-                                <td id="image_correkt"><img src="files/correkt.png" alt="GG"></td>-
+                                <td id="image_correct"><img src="files/correct.png" alt="GG"></td>
                                 <!--img for wrongt-->
                                 <!--<td id="image_wrong"><img src="files/wrong.png" height="25px" width="25x"></td>-->
                                 <!--img for wrongt-->
-                                <!--<<td id="image_waiting"><img src="files/waitingv1.png" height="25px" width="25x"></td>-->
+                                <!--<<td id="image_waiting"><img src="files/waiting.png" height="25px" width="25x"></td>-->
                             </tr>
                         </table>
                     </div>
