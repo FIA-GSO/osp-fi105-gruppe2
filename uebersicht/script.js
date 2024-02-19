@@ -7,9 +7,9 @@ const date = null;
 
 // Test Variables
 const test_name = " Test Schüler";
-const  test_status= "ok";
-const  test_status_waiting= "waiting";
-const  test_status_wrong= "wrong";
+const test_status= "ok";
+const test_status_waiting= "waiting";
+const test_status_wrong= "wrong";
 const test_ausbilder = "Test Ausbilder";
 const test_date = "99.99.9999";
 
