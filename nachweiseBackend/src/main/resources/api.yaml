@@ -1,0 +1,240 @@
+
+openapi: "3.0.3"
+
+info:
+  description: API für Ausbildungsnachweise
+  version: 1.0.0
+  title: Ausbildungsnachweise
+
+servers:
+  - url: http://localhost:8080
+    description: local
+
+paths:
+  /user:
+    post:
+      operationId: postUser
+      tags:
+        - User
+      description: create User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userCreate'
+      responses:
+        200:
+          description: user created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGet'
+
+  /user/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    get:
+      operationId: getUser
+      tags:
+        - User
+      description: get user information
+      responses:
+        200:
+          description: user data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGet'
+    patch:
+      operationId: patchUser
+      tags:
+        - User
+      description: Change User information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userPatch'
+      responses:
+        200:
+          description: changed user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGet'
+    delete:
+      operationId: deleteUser
+      tags:
+        - User
+      responses:
+        204:
+          description: deleted
+
+  /apprenticeship:
+    post:
+      operationId: postApprenticeship
+      tags:
+        - Apprenticeship
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apprenticeshipData'
+      responses:
+        200:
+          description: created apprenticeship
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apprenticeshipGet'
+
+  /apprenticeship/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    patch:
+      operationId: patchApprenticeship
+      description: change ending date
+      tags:
+        - Apprenticeship
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apprenticeshipPatch'
+      responses:
+        200:
+          description: changed ending date
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apprenticeshipGet'
+
+  /session:
+    get:
+      operationId: getSession
+      parameters:
+        - in: header
+          name: Authorization
+          schema:
+            type: string
+      tags:
+        - Session
+      responses:
+        204:
+          description: setting a session cookie
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: 'JSESSIONID=asdlfjkhasdfieu384=='
+
+components:
+  schemas:
+
+    email:
+      type: object
+      properties:
+        email:
+          type: string
+          example: 'email@example.com'
+
+    password:
+      type: object
+      properties:
+        password:
+          type: string
+          example: 'asd/8+_:#'
+
+    userPatch:
+        allOf:
+          - $ref: '#/components/schemas/email'
+          - $ref: '#/components/schemas/password'
+
+    personalData:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+            - 'Azubi'
+            - 'Ausbilder'
+            - 'Prüfer/Lehrer'
+        vorname:
+          type: string
+        nachname:
+          type: string
+
+    userCreate:
+      allOf:
+        - $ref: '#/components/schemas/userPatch'
+        - $ref: '#/components/schemas/personalData'
+
+    userData:
+      allOf:
+        - $ref: '#/components/schemas/personalData'
+        - $ref: '#/components/schemas/email'
+        - type: object
+          properties:
+            userName:
+              type: string
+
+    userGet:
+      allOf:
+        - $ref: '#/components/schemas/userData'
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    apprenticeshipData:
+      type: object
+      properties:
+        start:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        end:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        apprenticeId:
+          type: integer
+        instructorId:
+          type: integer
+        profession:
+          type: string
+
+    apprenticeshipGet:
+      allOf:
+        - $ref: '#/components/schemas/apprenticeshipData'
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    apprenticeshipPatch:
+      type: object
+      properties:
+        end:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
+
+    basicAuth:
+      type: http
+      scheme: basic
