@@ -1,6 +1,6 @@
 package de.fi105.nachweiseBackend.mapper;
 
-import de.fi105.nachweiseBackend.dto.entity.PersonEntity;
+import de.fi105.nachweiseBackend.entity.PersonEntity;
 import de.fi105.nachweiseBackend.model.UserCreate;
 import de.fi105.nachweiseBackend.model.UserGet;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -11,12 +11,12 @@ import org.mapstruct.Named;
 @Mapper
 public interface UserMapper {
 
-    @Mapping(target = "prename", source = "vorname")
-    @Mapping(target = "lastname", source = "nachname")
-    @Mapping(target = "passwordHash", source = "password", qualifiedByName = "passwordToHash")
-    @Mapping(target = "role", source = "role", qualifiedByName = "roleToInt")
-    @Mapping(target = "username", source = ".", qualifiedByName = "generateUserName")
-    PersonEntity fromCreate(UserCreate input);
+    @Mapping(target = "prename", source = "input.vorname")
+    @Mapping(target = "lastname", source = "input.nachname")
+    @Mapping(target = "passwordHash", source = "input.password", qualifiedByName = "passwordToHash")
+    @Mapping(target = "role", source = "input.role", qualifiedByName = "roleToInt")
+    @Mapping(target = "username", source = "username")
+    PersonEntity fromCreate(UserCreate input, String username);
 
     @Mapping(target = "userName", source = "username")
     @Mapping(target = "vorname", source = "prename")
@@ -27,13 +27,6 @@ public interface UserMapper {
     @Named("passwordToHash")
     static String passwordToHash(String input) {
         return DigestUtils.sha256Hex(input);
-    }
-
-    @Named("generateUserName")
-    static String createUsername(UserCreate input) {
-        char[] lastname = input.getNachname().toCharArray();
-        char[] prename = input.getVorname().toCharArray();
-        return "" + lastname[0] + lastname[1] + lastname[2] + prename[0] + prename[1] + prename[2];
     }
 
     @Named("roleToInt")

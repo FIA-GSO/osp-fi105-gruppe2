@@ -13,6 +13,8 @@ servers:
 paths:
   /user:
     post:
+      security:
+        - cookieAuth: []
       operationId: postUser
       tags:
         - User
@@ -39,6 +41,8 @@ paths:
         schema:
           type: integer
     get:
+      security:
+        - cookieAuth: []
       operationId: getUser
       tags:
         - User
@@ -51,6 +55,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/userGet'
     patch:
+      security:
+        - cookieAuth: []
       operationId: patchUser
       tags:
         - User
@@ -69,6 +75,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/userGet'
     delete:
+      security:
+        - cookieAuth: []
       operationId: deleteUser
       tags:
         - User
@@ -78,6 +86,8 @@ paths:
 
   /apprenticeship:
     post:
+      security:
+        - cookieAuth: []
       operationId: postApprenticeship
       tags:
         - Apprenticeship
@@ -103,6 +113,8 @@ paths:
         schema:
           type: integer
     patch:
+      security:
+        - cookieAuth: []
       operationId: patchApprenticeship
       description: change ending date
       tags:
@@ -121,14 +133,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/apprenticeshipGet'
 
-  /session:
-    get:
+  /session/{username}:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/password'
       operationId: getSession
       parameters:
-        - in: header
-          name: Authorization
+        - name: username
+          in: path
           schema:
             type: string
+          required: true
       tags:
         - Session
       responses:
@@ -234,7 +252,3 @@ components:
       type: apiKey
       in: cookie
       name: JSESSIONID
-
-    basicAuth:
-      type: http
-      scheme: basic

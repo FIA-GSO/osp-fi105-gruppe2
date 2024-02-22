@@ -1,4 +1,4 @@
-package de.fi105.nachweiseBackend.dto.entity;
+package de.fi105.nachweiseBackend.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

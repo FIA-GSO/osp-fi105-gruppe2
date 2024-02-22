@@ -1,9 +1,9 @@
-package de.fi105.nachweiseBackend.dto.entity;
+package de.fi105.nachweiseBackend.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Table(name = "Person")
+@Table(name = "person")
 @Entity
 @Data
 public class PersonEntity {

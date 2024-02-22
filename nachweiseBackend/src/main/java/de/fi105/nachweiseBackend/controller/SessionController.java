@@ -3,12 +3,12 @@ package de.fi105.nachweiseBackend.controller;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import de.fi105.nachweiseBackend.api.SessionApiDelegate;
+import de.fi105.nachweiseBackend.model.Password;
 import de.fi105.nachweiseBackend.model.UserGet;
 import de.fi105.nachweiseBackend.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.Base64;
 import java.util.Date;
 
 @Component
@@ -23,15 +23,8 @@ public class SessionController implements SessionApiDelegate {
     }
 
     @Override
-    public ResponseEntity<Void> getSession(String authorization) {
-        String[] authFields = authorization.split(" ");
-        if (!authFields[0].equals("Basic")) {
-            throw new RuntimeException();
-        }
-        String decoded = new String(Base64.getDecoder().decode(authFields[1]));
-        String[] credentials = decoded.split(":");
-
-        UserGet user = userService.authenticate(credentials[0], credentials[1]);
+    public ResponseEntity<Void> getSession(String username, Password password) {
+        UserGet user = userService.authenticate(username, password.getPassword());
 
         String jwtToken = JWT.create()
                 .withIssuer("nachweiseBackend")
@@ -42,7 +35,7 @@ public class SessionController implements SessionApiDelegate {
                 .withNotBefore(new Date(System.currentTimeMillis() + 1000L))
                 .sign(algorithm);
 
-        return ResponseEntity.ok().header("Set-Cookie", "JSESSIONID=" + jwtToken).build();
+        return ResponseEntity.noContent().header("Set-Cookie", "JSESSIONID=" + jwtToken).build();
     }
 
 }
