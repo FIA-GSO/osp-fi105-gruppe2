@@ -11,13 +11,32 @@
     <script src="navbarjs.js"></script>
 </head>
 <body>
+<header>
     <nav class="navbar">
+        <div class="logo">
+        <a href="#"><img id="logo" src="https://www.gso-koeln.de/wp-content/uploads/2020/06/cropped-LOGO-GSO_neu.png" alt=""></a>
+        </div>
         <ul class="navbar-nav">
-            <li class="nav-item"><a href="#">Startseite</a></li>
-            <li class="nav-item"><a href="#">Über uns</a></li>
-            <li class="nav-item"><a href="#">Dienstleistungen</a></li>
-            <li class="nav-item"><a href="#">Kontakt</a></li>
+            <li class="nav-item"><a href="#">Startseite</a>
+                <ul class="submenu">
+                    <li class="nav-submenu-item"><a href="#"> Anmelden</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="#">Nachweise</a>
+                <ul class="submenu">
+                    <li class="nav-submenu-item"><a href="#">Übersicht</a></li>
+                    <li class="nav-submenu-item"><a href="#">Nachweis erstellen</a></li>
+                    <li class="nav-submenu-item"><a href="#">Quittierung erstellen</a></li>
+                    <li class="nav-submenu-item"><a href="#">Konfigurieren</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="#">Über uns</a>
+                <ul class="submenu">
+                    <li class="nav-submenu-item"><a href="#">Kontakt</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
+</header>
 </body>
 </html>
