@@ -1,0 +1,393 @@
+
+openapi: "3.0.3"
+
+info:
+  description: API für Ausbildungsnachweise
+  version: 1.0.0
+  title: Ausbildungsnachweise
+
+servers:
+  - url: http://localhost:8080
+    description: local
+
+paths:
+  /user:
+    post:
+      security:
+        - cookieAuth: []
+      operationId: postUser
+      tags:
+        - User
+      description: create User
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userCreate'
+      responses:
+        200:
+          description: user created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGet'
+
+  /user/{userName}:
+    parameters:
+      - name: userName
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      security:
+        - cookieAuth: []
+      operationId: getUser
+      tags:
+        - User
+      description: get user information
+      responses:
+        200:
+          description: user data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGet'
+    patch:
+      security:
+        - cookieAuth: []
+      operationId: patchUser
+      tags:
+        - User
+      description: Change User information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userPatch'
+      responses:
+        200:
+          description: changed user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGet'
+
+  /user/{userName}/requested:
+    parameters:
+      - name: userName
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - Proof
+      description: get proofs requested for acknowledgement
+      responses:
+        200:
+          description: list of proofs requested for acknowledgement
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proofArray'
+
+  /apprenticeship:
+    post:
+      security:
+        - cookieAuth: []
+      operationId: postApprenticeship
+      tags:
+        - Apprenticeship
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apprenticeshipData'
+      responses:
+        200:
+          description: created apprenticeship
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apprenticeshipGet'
+
+  /apprenticeship/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+    patch:
+      security:
+        - cookieAuth: []
+      operationId: patchApprenticeship
+      description: change ending date
+      tags:
+        - Apprenticeship
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apprenticeshipPatch'
+      responses:
+        200:
+          description: changed ending date
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apprenticeshipGet'
+
+  /session/{username}:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/password'
+      operationId: getSession
+      parameters:
+        - name: username
+          in: path
+          schema:
+            type: string
+          required: true
+      tags:
+        - Session
+      responses:
+        204:
+          description: setting a session cookie
+          headers:
+            Set-Cookie:
+              schema:
+                type: string
+                example: 'JSESSIONID=asdlfjkhasdfieu384=='
+
+  /proof:
+    post:
+      tags:
+        - Proof
+      description: Post a new proof
+      operationId: postProof
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proofData'
+      responses:
+        200:
+          description: Created Proof
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proofGet'
+
+  /proof/{id}:
+    patch:
+      tags:
+        - Proof
+      operationId: patchProof
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proofPatch'
+      responses:
+        200:
+          description: patched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proofGet'
+
+  /proof/{id}/acknowledgement:
+    post:
+      tags:
+        - Acknowledgement
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/acknowledgement'
+      responses:
+        200:
+          description: "posted acknowledgement"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acknowledgement'
+
+components:
+  schemas:
+
+    email:
+      type: object
+      properties:
+        email:
+          type: string
+          example: 'email@example.com'
+
+    password:
+      type: object
+      properties:
+        password:
+          type: string
+          example: 'asd/8+_:#'
+
+    userPatch:
+        allOf:
+          - $ref: '#/components/schemas/email'
+          - $ref: '#/components/schemas/password'
+
+    personalData:
+      type: object
+      properties:
+        role:
+          type: string
+          enum:
+            - 'Azubi'
+            - 'Ausbilder'
+            - 'Prüfer/Lehrer'
+        vorname:
+          type: string
+        nachname:
+          type: string
+
+    userCreate:
+      allOf:
+        - $ref: '#/components/schemas/userPatch'
+        - $ref: '#/components/schemas/personalData'
+
+    userData:
+      allOf:
+        - $ref: '#/components/schemas/personalData'
+        - $ref: '#/components/schemas/email'
+        - type: object
+          properties:
+            userName:
+              type: string
+
+    userGet:
+      allOf:
+        - $ref: '#/components/schemas/userData'
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    apprenticeshipData:
+      type: object
+      properties:
+        start:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        end:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        apprenticeName:
+          type: string
+        instructorName:
+          type: string
+        profession:
+          type: string
+
+    apprenticeshipGet:
+      allOf:
+        - $ref: '#/components/schemas/apprenticeshipData'
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    apprenticeshipPatch:
+      type: object
+      properties:
+        end:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+
+    proofData:
+      type: object
+      required:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+        - weekStartDate
+      properties:
+        monday:
+          type: string
+        tuesday:
+          type: string
+        wednesday:
+          type: string
+        thursday:
+          type: string
+        friday:
+          type: string
+        department:
+          type: string
+        weekStartDate:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        requested:
+          type: boolean
+          default: false
+
+    proofPatch:
+      type: object
+      properties:
+        monday:
+          type: string
+        tuesday:
+          type: string
+        wednesday:
+          type: string
+        thursday:
+          type: string
+        friday:
+          type: string
+        department:
+          type: string
+        weekStartDate:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        requested:
+          type: boolean
+          default: false
+
+    proofArray:
+      type: array
+      items:
+        - $ref: '#/components/schemas/proofGet'
+
+    proofGet:
+      allOf:
+        - $ref: '#/components/schemas/proofData'
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    acknowledgement:
+      type: object
+      required:
+        - acknowledged
+        - message
+      properties:
+        acknowledged:
+          type: boolean
+        message:
+          type: string
+
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: JSESSIONID
