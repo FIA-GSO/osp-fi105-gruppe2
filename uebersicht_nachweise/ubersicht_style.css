@@ -115,6 +115,7 @@ button {
 	height: 6%;
 	margin: 0 10%;
 }
+
 #search{
 	height : 25px;
 	padding: 2px;
@@ -122,7 +123,6 @@ button {
 	border-radius: 4px;
 	margin-left: 14px;
 		--content_input_placeholder_color: black;
-
 }
 
 #search_button {

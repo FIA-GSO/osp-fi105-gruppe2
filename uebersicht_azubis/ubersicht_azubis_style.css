@@ -1,0 +1,109 @@
+/*Übersicht CSS*/
+
+.custom-logo-gso{
+	margin-left: 10px;
+}
+
+.h1\+bg{
+	/*margin-bottom: 80%;*/
+	width: 100%;
+	align-items: center;
+	display: inline-block;
+	justify-content: center;
+	box-shadow: 10px 10px 8px rgba(141, 141, 125, 0.13);
+}
+
+.overview-table_header {
+	width: 100%;
+	margin: 0 1% 98%;
+}
+Table td img {
+	width: 40px;
+    height: 40px;
+}
+
+td#name {
+	text-align: center;
+}
+
+.buttons-config-div {
+	display: flex;
+	justify-content: center;
+	margin: 4% auto  1em;
+}
+
+.search {
+	border: #242323 1px solid;
+	width: 10%;
+	height: 6%;
+	margin: 0 10%;
+}
+
+#search{
+	height : 25px;
+	padding: 2px;
+	font-size: 16px;
+	border-radius: 4px;
+	margin-left: 14px;
+		--content_input_placeholder_color: black;
+}
+
+#search_button {
+	display: contents;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background: none;
+	font-size: 45px !important;
+}
+
+input#search{
+	margin-top: 10px;
+	height: 35px;
+	text-align: center;
+}
+
+label {
+	margin-top: 3%;
+	font-size: 55px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+form {
+	display: flex;
+    justify-content: center;
+	padding: 13px 0;
+}
+
+span {
+	transform: rotate(32grad);
+}
+
+span:hover {
+	transform: rotate(0deg);
+	background-color: rgba(159, 153, 153, 0.41);
+	opacity: 0.5;
+	border-radius: 75%;
+}
+table{
+	margin: 10px 0 0 ;
+}
+
+tbody tr td a {
+	text-decoration: none;
+	color: #242323;
+}
+
+#name_des_azubis{
+	color: #242323;
+	text-decoration: none;
+	font-size: 20px;
+}
+.azubi_info{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}

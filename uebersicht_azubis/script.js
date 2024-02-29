@@ -46,8 +46,10 @@ function statusImage(status) {
             return "-";
     }
 }
+
 //Check for Row Number
 function checkForRowIncrement() {
     let table = document.getElementById("table");
     return table.rows.length
 }
+

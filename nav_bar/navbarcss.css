@@ -76,7 +76,7 @@ img#logo{
     max-width: 60%;
 }
 
-@media (max-width: 1375px) {
+@media screen and (max-width: 1375px) {
     header .navbar {
         display: flex;
         flex-direction: column;
@@ -102,7 +102,7 @@ img#logo{
         opacity: 1;
     }
     ul.submenu{
-        margin-left: 10%
+        margin-left: 15%
     }
 
     nav.navbar{
@@ -112,5 +112,17 @@ img#logo{
     .nav-item{
         margin: 15px 20px;
     }
+    .logo img{
+        display: flex;
+        margin-left: 25%;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 768px){
+        label {
+            font-size: 25px;
+        }
+    .buttons-config-div{
 
+    }
 }
