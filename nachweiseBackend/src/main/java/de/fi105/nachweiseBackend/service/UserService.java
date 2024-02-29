@@ -1,6 +1,7 @@
 package de.fi105.nachweiseBackend.service;
 
 import de.fi105.nachweiseBackend.entity.PersonEntity;
+import de.fi105.nachweiseBackend.exception.ServiceException;
 import de.fi105.nachweiseBackend.mapper.UserMapper;
 import de.fi105.nachweiseBackend.model.UserCreate;
 import de.fi105.nachweiseBackend.model.UserGet;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
 
 import static de.fi105.nachweiseBackend.mapper.UserMapper.passwordToHash;
 
@@ -26,8 +26,10 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public UserGet getUser(int id) {
-        return userMapper.toUserGet(personRepository.getReferenceById(id));
+    public UserGet getUser(String userName) {
+        var found = personRepository.findByUsername(userName)
+                .orElseThrow(() -> new ServiceException(404, new String("{}")));
+        return userMapper.toUserGet(found);
     }
 
     @Transactional
@@ -37,7 +39,7 @@ public class UserService {
             entity.setEmail(userPatch.getEmail());
         }
         if (userPatch.getPassword() != null) {
-            entity.setEmail(passwordToHash(userPatch.getEmail()));
+            entity.setPasswordHash(passwordToHash(userPatch.getPassword()));
         }
         return userMapper.toUserGet(personRepository.save(entity));
     }
@@ -48,11 +50,11 @@ public class UserService {
         char[] prename = userCreate.getVorname().toCharArray();
         String username = "" + lastname[0] + lastname[1] + lastname[2] + prename[0] + prename[1] + prename[2];
 
-        List<PersonEntity> allByUsername = personRepository.findAllByUsername(username);
+        var byUsername = personRepository.findByUsername(username);
         int i = 1;
-        while (!allByUsername.isEmpty()) {
+        while (byUsername.isPresent()) {
             username = username + i;
-            allByUsername = personRepository.findAllByUsername(username);
+            byUsername = personRepository.findByUsername(username);
             i++;
         }
 
@@ -61,17 +63,13 @@ public class UserService {
     }
 
     public UserGet authenticate(String username, String password) {
-        String hash = DigestUtils.sha256Hex(password);
-        List<PersonEntity> result = personRepository.findAllByUsername(username);
-        if (result.size() != 1) {
+        String hash = UserMapper.passwordToHash(password);
+        var result = personRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException());
+        if (!result.getPasswordHash().equals(hash)) {
             throw new RuntimeException();
         }
-
-        PersonEntity entity = result.get(0);
-        if (!entity.getPasswordHash().equals(hash)) {
-            throw new RuntimeException();
-        }
-        return userMapper.toUserGet(entity);
+        return userMapper.toUserGet(result);
     }
 
     @PostConstruct

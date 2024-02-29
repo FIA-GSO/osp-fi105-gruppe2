@@ -11,7 +11,7 @@ public class PersonEntity {
     @Id
     @Column(name = "idPerson")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String username;
 

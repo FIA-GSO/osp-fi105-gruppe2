@@ -33,13 +33,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/userGet'
 
-  /user/{id}:
+  /user/{userName}:
     parameters:
-      - name: id
+      - name: userName
         in: path
         required: true
         schema:
-          type: integer
+          type: string
     get:
       security:
         - cookieAuth: []
@@ -74,15 +74,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/userGet'
-    delete:
-      security:
-        - cookieAuth: []
-      operationId: deleteUser
+
+  /user/{userName}/requested:
+    parameters:
+      - name: userName
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
       tags:
-        - User
+        - Proof
+      description: get proofs requested for acknowledgement
       responses:
-        204:
-          description: deleted
+        200:
+          description: list of proofs requested for acknowledgement
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proofArray'
 
   /apprenticeship:
     post:
@@ -158,6 +168,60 @@ paths:
                 type: string
                 example: 'JSESSIONID=asdlfjkhasdfieu384=='
 
+  /proof:
+    post:
+      tags:
+        - Proof
+      description: Post a new proof
+      operationId: postProof
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proofData'
+      responses:
+        200:
+          description: Created Proof
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proofGet'
+
+  /proof/{id}:
+    patch:
+      tags:
+        - Proof
+      operationId: patchProof
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/proofPatch'
+      responses:
+        200:
+          description: patched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/proofGet'
+
+  /proof/{id}/acknowledgement:
+    post:
+      tags:
+        - Acknowledgement
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/acknowledgement'
+      responses:
+        200:
+          description: "posted acknowledgement"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/acknowledgement'
+
 components:
   schemas:
 
@@ -225,10 +289,10 @@ components:
         end:
           type: string
           pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
-        apprenticeId:
-          type: integer
-        instructorId:
-          type: integer
+        apprenticeName:
+          type: string
+        instructorName:
+          type: string
         profession:
           type: string
 
@@ -246,6 +310,81 @@ components:
         end:
           type: string
           pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+
+    proofData:
+      type: object
+      required:
+        - monday
+        - tuesday
+        - wednesday
+        - thursday
+        - friday
+        - weekStartDate
+      properties:
+        monday:
+          type: string
+        tuesday:
+          type: string
+        wednesday:
+          type: string
+        thursday:
+          type: string
+        friday:
+          type: string
+        department:
+          type: string
+        weekStartDate:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        requested:
+          type: boolean
+          default: false
+
+    proofPatch:
+      type: object
+      properties:
+        monday:
+          type: string
+        tuesday:
+          type: string
+        wednesday:
+          type: string
+        thursday:
+          type: string
+        friday:
+          type: string
+        department:
+          type: string
+        weekStartDate:
+          type: string
+          pattern: '[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])'
+        requested:
+          type: boolean
+          default: false
+
+    proofArray:
+      type: array
+      items:
+        - $ref: '#/components/schemas/proofGet'
+
+    proofGet:
+      allOf:
+        - $ref: '#/components/schemas/proofData'
+        - type: object
+          properties:
+            id:
+              type: integer
+
+    acknowledgement:
+      type: object
+      required:
+        - acknowledged
+        - message
+      properties:
+        acknowledged:
+          type: boolean
+        message:
+          type: string
 
   securitySchemes:
     cookieAuth:

@@ -15,7 +15,7 @@ public class EntryEntity {
     @Id
     @Column(name = "idEintrag")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "ausgefuehrteArbeit")
     private String doneWork;

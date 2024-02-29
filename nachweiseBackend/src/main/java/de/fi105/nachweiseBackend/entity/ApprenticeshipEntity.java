@@ -11,20 +11,20 @@ import java.sql.Date;
 @Getter
 @Setter
 @Accessors(chain = true)
-@Table(name = "Ausbilung")
+@Table(name = "ausbildung")
 @Entity
 public class ApprenticeshipEntity {
 
     @Id
     @Column(name = "idAusbildung")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "auszubildenderId")
-    private Long apprenticeId;
+    private Integer apprenticeId;
 
     @Column(name = "ausbilderId")
-    private Long instructorId;
+    private Integer instructorId;
 
     @Column(name = "beruf")
     private String profession;

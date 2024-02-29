@@ -34,7 +34,7 @@ public class TokenFilter implements Filter {
         }
 
         if (cookies == null) {
-            throw new ServiceException(401, new Object());
+            throw new AccessDeniedException("No session cookie");
         }
 
         Cookie session = Arrays.stream(cookies).filter(x -> x.getName().equals("JSESSIONID"))

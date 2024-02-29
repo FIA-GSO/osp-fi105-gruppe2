@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserController implements UserApiDelegate {
+public class UserController extends BaseController implements UserApiDelegate {
 
     private final UserService userService;
 
@@ -23,12 +23,14 @@ public class UserController implements UserApiDelegate {
     }
 
     @Override
-    public ResponseEntity<UserGet> patchUser(Integer id, UserPatch userPatch) {
-        return ResponseEntity.ok(userService.patchUser(userPatch, id));
+    public ResponseEntity<UserGet> patchUser(String userName, UserPatch userPatch) {
+        var user = userService.getUser(userName);
+        return ResponseEntity.ok(userService.patchUser(userPatch, user.getId()));
     }
 
     @Override
-    public ResponseEntity<UserGet> getUser(Integer id) {
-        return ResponseEntity.ok(userService.getUser(id));
+    public ResponseEntity<UserGet> getUser(String username) {
+        return ResponseEntity.ok(userService.getUser(username));
     }
+
 }

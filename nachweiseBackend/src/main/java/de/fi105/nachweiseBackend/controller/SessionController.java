@@ -6,13 +6,15 @@ import de.fi105.nachweiseBackend.api.SessionApiDelegate;
 import de.fi105.nachweiseBackend.model.Password;
 import de.fi105.nachweiseBackend.model.UserGet;
 import de.fi105.nachweiseBackend.service.UserService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.Date;
 
 @Component
-public class SessionController implements SessionApiDelegate {
+public class SessionController extends BaseController implements SessionApiDelegate {
 
     private final Algorithm algorithm;
     private final UserService userService;
@@ -35,7 +37,9 @@ public class SessionController implements SessionApiDelegate {
                 .withNotBefore(new Date(System.currentTimeMillis() + 1000L))
                 .sign(algorithm);
 
-        return ResponseEntity.noContent().header("Set-Cookie", "JSESSIONID=" + jwtToken).build();
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Set-Cookie", "JSESSIONID=" + jwtToken);
+        return ResponseEntity.noContent().headers(headers).build();
     }
 
 }

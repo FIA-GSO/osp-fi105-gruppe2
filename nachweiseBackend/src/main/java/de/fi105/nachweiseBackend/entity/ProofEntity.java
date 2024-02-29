@@ -17,10 +17,10 @@ public class ProofEntity {
     @Id
     @Column(name = "idNachweis")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "auszubildenderId")
-    private Long apprenticeId;
+    private Integer apprenticeId;
 
     @Column(name = "ggfAusbildungsAbteilung")
     private String info;

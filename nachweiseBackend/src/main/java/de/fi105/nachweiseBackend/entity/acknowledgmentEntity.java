@@ -15,10 +15,10 @@ public class acknowledgmentEntity {
     @Id
     @Column(name = "idQuittierung")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "nachweisId")
-    private Long proofId;
+    private Integer proofId;
 
     @Column(name = "quittiert")
     private boolean acknowlegded;
