@@ -61,8 +61,7 @@ input::placeholder {
 
 .btn:hover {
 	color: var(--content_background_color);
-	background: var(--color_accent);
-	border-width: 0;
+	border-color: transparent;
 }
 
 /* flexbox */
