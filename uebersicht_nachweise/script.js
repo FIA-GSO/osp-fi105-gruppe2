@@ -20,13 +20,14 @@ function  addTablerow(name, ausbilder, date, status) {
     let table = document.getElementById("table");
     let row = table.insertRow(table.rows.length);
 
-    row.insertCell(0).innerHTML = name.toString();
+    row.insertCell(0).innerHTML = "<a  id='name' href='#'>" + name + "</a>";
     row.insertCell(1).innerHTML = ausbilder.toString();
     row.insertCell(2).innerHTML = date.toString();
     row.insertCell(3).setAttribute("id", "row_image" + checkForRowIncrement());
     let image = document.getElementById("row_image" + checkForRowIncrement());
     image.appendChild(statusImage(status));
 }
+
 // Creating Status Image
 function statusImage(status) {
     switch (status) {
@@ -53,3 +54,17 @@ function checkForRowIncrement() {
     return table.rows.length
 }
 
+// Burger Menu
+function showMenuButton() {
+    const navButton = document.getElementById("navbar-navid");
+    navButton.style.display = "";
+}
+
+//Hier noch das Burger Menu richtig machen
+function hideMenu() {
+    let navbarvar = document.getElementById("navbar-navid");
+    navbarvar.style.display = "flex";
+    if (navbarvar.style.style.display == "flex"){
+    dropDown.style.display = "none";
+    }
+}

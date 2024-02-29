@@ -2,14 +2,15 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Übersicht | Ausbildungsnachweise</title>
+    <title>Übersicht | Auszubildende</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../Frontend/mainStyle.css">
     <link rel="stylesheet" href="ubersicht_azubis_style.css">
     <link rel="stylesheet" href="../uebersicht_nachweise/ubersicht_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../nav_bar/navbarcss.css">
-    <script src="script.js"></script>
+    <script src="../uebersicht_nachweise/script.js"></script>
+    <script src="../uebersicht_azubis/azubi_view_scripts.js"></script>
 </head>
 <body>
 <div class="overview-table_header">
@@ -24,7 +25,7 @@
                             <ul class="navbar-nav">
                                 <li class="nav-item"><a href="#">Startseite</a>
                                     <ul class="submenu">
-                                        <li class="nav-submenu-item"><a href="#"> Anmelden</a></li>
+                                        <li class="nav-submenu-item"><a href="#">Abmelden</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a href="#">Nachweise</a>
@@ -54,9 +55,9 @@
                              <input type="search" name="search_field" id="search" placeholder="Search..." >
                             <button id= "search_button" class="search_field"><span>&#9947</span></button>
                         </form>
-                        <button onclick="addTablerow()" class="btn">TESTNeue_Reihe</button>
-                        <button onclick="checkForRowIncrement()" class="btn">TEST_Button2</button>
-                        <button  class="btn">Button </button>
+                        <button id="button1" onclick="addTablerowForAzubiView()" class="btn">Auszubildenden erstellen</button>
+                        <button id="button2" onclick="checkForRowIncrement()" class="btn">Auszubildenden Löschen</button>
+                        <button id="button3" class="btn">Ω</button>
                     </div>
             </div>
                     <div class="table_header">

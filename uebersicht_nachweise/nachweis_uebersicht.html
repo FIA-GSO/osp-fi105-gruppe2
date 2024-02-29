@@ -18,19 +18,19 @@
                     <header>
                         <nav class="navbar">
                             <div class="logo">
-                            <a href="#"><img id="logo" src="https://www.gso-koeln.de/wp-content/uploads/2020/06/cropped-LOGO-GSO_neu.png" alt=""></a>
+                            <a href="https://www.gso-koeln.de/"><img id="logo" src="https://www.gso-koeln.de/wp-content/uploads/2020/06/cropped-LOGO-GSO_neu.png" alt=""></a>
                             </div>
-                            <ul class="navbar-nav">
-                                <li class="nav-item"><a href="#">Startseite</a>
+                            <ul id="navbar-navid" class="navbar-nav">
+                                <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
                                     <ul class="submenu">
-                                        <li class="nav-submenu-item"><a href="#"> Anmelden</a></li>
+                                        <li class="nav-submenu-item"><a href="/Frontend/login.html">Abmelden</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a href="#">Nachweise</a>
                                     <ul class="submenu">
                                         <li class="nav-submenu-item"><a href="#">Übersicht</a></li>
                                         <li class="nav-submenu-item"><a href="#">Nachweis erstellen</a></li>
-                                        <li class="nav-submenu-item"><a href="#">Quittierung erstellen</a></li>
+                                        <!--<li class="nav-submenu-item"><a href="#">Auszubildenden Übersicht</a></li>-->
                                         <li class="nav-submenu-item"><a href="#">Konfigurieren</a></li>
                                     </ul>
                                 </li>
@@ -41,6 +41,33 @@
                                 </li>
                             </ul>
                         </nav>
+                        <!--Burger Menu-->
+                        <div id="burgerMenuid" class="burger-menu">
+                            <button onclick="" class="dropdownbutton">&#9776</button>
+                                <div class="dropdown-content menu_text" id="dropdown">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
+                                            <ul class="submenu">
+                                                <li class="nav-submenu-item"><a href="/Frontend/login.html">Abmelden</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item"><a href="#">Nachweise</a>
+                                            <ul class="submenu">
+                                                <li class="nav-submenu-item"><a href="#">Übersicht</a></li>
+                                                <li class="nav-submenu-item"><a href="#">Nachweis erstellen</a></li>
+                                                <!--<li class="nav-submenu-item"><a href="#">Auszubildenden Übersicht</a></li>-->
+                                                <li class="nav-submenu-item"><a href="#">Konfigurieren</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item"><a href="#">Über uns</a>
+                                            <ul class="submenu">
+                                                <li class="nav-submenu-item"><a href="#">Kontakt</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>
+                        <!--Burger Menu-->
                     </header>
             </div>
                     <label>Übersicht deiner Ausbildungsnachweise</label>
@@ -50,9 +77,9 @@
                              <input type="search" name="search_field" id="search" placeholder="Search..." >
                             <button id= "search_button" class="search_field"><span>&#9947</span></button>
                         </form>
-                        <button onclick="addTablerow()" class="btn">TESTNeue_Reihe</button>
-                        <button onclick="checkForRowIncrement()" class="btn">TEST_Button2</button>
-                        <button  class="btn">PENIS</button>
+                        <button id="button1" onclick="addTablerow()" class="btn">Nachweis erstellen</button>
+                        <button id="button2" onclick="" class="btn">Nachweise Konfigurieren</button>
+                        <button id="button3" class="btn">|{}}≠≠}{|][[[]|{}≠{|][¢[]|{</button>
                     </div>
             </div>
                     <div class="Table_header">
@@ -67,15 +94,15 @@
                             </thead>
                             <tbody>
                                 <tr class="table-row-content" id="table-content">
-                                    <td id="name">Ben Louis Montag</td>
+                                    <td id="name"><a href="#">Ben Louis Montag</a></td>
                                     <td id="ausbilder">N.Heim</td>
                                     <td id="date">21.08.2023</td>
                                     <!--img for correct-->
-                                    <td id="image"><img src="files/correct.png" alt="GG"></td>
+                                    <!--<td id="image"><img src="files/correct.png" alt="GG"></td>-->
                                     <!--img for wrongt-->
                                     <!--<td id="image_wrong"><img src="files/wrong.png" height="25px" width="25x"></td>-->
                                     <!--img for wrongt-->
-                                    <!--<<td id="image_waiting"><img src="files/waiting.png" height="25px" width="25x"></td>-->
+                                    <td id="image_waiting"><img src="files/waiting.png" height="25px" width="25x" alt=""></td>
                                 </tr>
                             </tbody>
                         </table>

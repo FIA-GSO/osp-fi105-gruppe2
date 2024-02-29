@@ -4,7 +4,7 @@
 	--content_headings: #242323;
 	--content_border_color: #6f6e6e;
 	--content_input_placeholder_color: #8c8b8b;
-	--color_accent: #dd4d4d;
+	--color_accent: #5b9bd5;
 }
 
 .navbar {
@@ -39,7 +39,7 @@
 }
 
 .nav-item a:hover {
-    background-color: #555;
+    background: var(--color_accent);
     color: #d7cccc;
 }
 header{
@@ -64,7 +64,7 @@ header ul .submenu {
     align-items: center;
 }
 header ul li:hover .submenu{
-    z-index: 99;
+    z-index: 999;
     opacity: 1;
     margin-top: 15px;
 }
@@ -116,13 +116,5 @@ img#logo{
         display: flex;
         margin-left: 25%;
         justify-content: center;
-    }
-}
-@media screen and (max-width: 768px){
-        label {
-            font-size: 25px;
-        }
-    .buttons-config-div{
-
     }
 }
