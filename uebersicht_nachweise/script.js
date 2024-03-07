@@ -64,7 +64,7 @@ function showMenuButton() {
 function hideMenu() {
     let navbarvar = document.getElementById("navbar-navid");
     navbarvar.style.display = "flex";
-    if (navbarvar.style.style.display == "flex"){
+    if (navbarvar.style.style.display === "flex"){
     dropDown.style.display = "none";
     }
 }

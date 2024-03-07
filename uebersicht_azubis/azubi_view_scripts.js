@@ -7,12 +7,9 @@ function  addTablerowForAzubiView(name, ausbilder) {
     row.insertCell(1).innerHTML = ausbilder.toString();
 }
 
-function  handlerAbmeldenAnmelden(){
-    console.log("Abmelden")
-    return null
-
+function handler() {
+    let anchor = document.getElementById("link");
+    anchor.addEventListener("click", function ()   {
+        console.log("clicked");
+    });
 }
-
-
-let abmeldenAnmelden = document.getElementById("abmeldenAnmeldenID")
-abmeldenAnmelden.addEventListener("click", handlerAbmeldenAnmelden());
