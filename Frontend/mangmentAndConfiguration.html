@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="mainStyle.css">
+   <link rel="stylesheet" href="mangmentAndConfigurationStyle.css">
+   <body>
+    <div class="mangmentAndConfiguration-wrapper">
+        <div class="createUser-wrapper">
+            <h1>Nutzer anlegen</h1>
+            <div class="input-wrapper">
+                <div class="flexbox">
+                    <div class="left">
+                        <label for="firstName">Vorname:</label>
+                    </div>
+                    <div class="right">
+                        <input type="text" id="firstName" placeholder="Vorname angeben">
+                    </div>
+                    <div class="left">
+                        <label for="lastName">Nachname:</label>
+                    </div>
+                    <div class="right">
+                        <input type="text" id="lastName" placeholder="Nachname angeben">
+                    </div>
+                </div>
+                <div class="flexbox">
+                    <div class="left">
+                        <label for="email">E-Mail:</label>
+                    </div>
+                    <div class="right">
+                        <input type="text" id="email" placeholder="E-Mail angeben">
+                    </div>
+                    <div class="left">
+                        <label for="initialPassword">Initialpasswort:</label>
+                    </div>
+                    <div class="right">
+                        <input type="text" id="initialPassword" placeholder="Passwort angeben">
+                    </div>
+                </div>
+                <div class="flexbox">
+                    <div class="roleSelectorWrapper">
+                        <div class="left">
+                            <label for="role">Rolle:</label>
+                        </div>
+                        <div class="right">
+                            <select class="roleSelector" id="role">
+                                <option value="auszubildener">Auszubildener</option>
+                                <option value="ausbilder">Ausbilder</option>
+                                <option value="LehrerPruefer">Lehrer / Prüfer</option>
+                                <option value="administrator">Administrator</option>
+                              </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="btnBox">
+            <button class="btn">Speichern</button>
+        </div>
+      </div>
+    <div class="createTraining-wrapper">
+        <h1>Ausbildung anlegen</h1>
+        <div class="flexbox">
+            <div class="left">
+                <label for="usernameInstructor">Nutzername von Ausbilder:</label>
+            </div>
+            <div class="right">
+                <input type="text" id="usernameInstructor" placeholder="Nutzername von Ausbilder angeben">
+            </div>
+            <div class="left">
+                <label for="usernameApprentice">Nutzername von Auszubildenen:</label>
+            </div>
+            <div class="right">
+                <input type="text" id="usernameApprentice" placeholder="Nutzername von Auszubildenen angeben">
+            </div>
+        </div>
+        <div class="flexbox">
+            <div class="left">
+                <label for="jobTitle">Berufsbezeichnung der Ausbildung:</label>
+            </div>
+            <div class="right">
+                <input type="text" id="jobTitle" placeholder="Berufsbezeichnung angeben">
+            </div>
+            <div class="left">
+                <label for="trainingStart">Beginn der Ausbildung:</label>
+            </div>
+            <div class="right">
+                <input type="date"class="trainingStart" id="trainingStart">
+            </div>
+        </div>
+        <div class="btnBox">
+            <button class="btn">Speichern</button>
+        </div>
+    </div>
+    </div>
+   </body>
+</html>

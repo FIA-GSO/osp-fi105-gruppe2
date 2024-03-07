@@ -1,0 +1,53 @@
+/* warpper */
+.createUser-wrapper, .createTraining-wrapper {
+    background-color: var(--content_background_color);
+    width: auto;
+    padding: 30px 40px;
+    width: 100%;
+}
+
+/* Muss in mainStyle  Schauen ob das auch auf der Seite der nachweisepflege liegt*/
+/* btn */
+.btn {
+	width: 200px;
+	height: 30px;
+	margin: 3px;
+}
+
+/* btnBox */
+.btnBox {
+	display: flex;
+    justify-content: flex-end;
+}
+/* Muss in mainStyle */
+
+.left {
+    width: 140px;
+    float: left;
+    text-align: right;
+}
+.right {
+    width: 280px;
+    margin-left: 10px;
+    float:left;
+}
+
+.roleSelector {
+    width: 200px;
+}
+
+.roleSelectorWrapper {
+    width: 100%;
+}
+
+.flexbox {
+    margin: 5px;
+}
+
+.input-wrapper {
+    margin: 5px;
+}
+
+.trainingStart {
+    width: 200px;
+}
