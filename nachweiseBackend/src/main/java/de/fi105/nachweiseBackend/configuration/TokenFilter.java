@@ -34,19 +34,19 @@ public class TokenFilter implements Filter {
         }
 
         if (cookies == null) {
-            throw new AccessDeniedException("No session cookie");
+            throw new ServiceException(400, "No session cookie");
         }
 
         Cookie session = Arrays.stream(cookies).filter(x -> x.getName().equals("JSESSIONID"))
                 .findFirst().orElse(null);
         if (session == null) {
-            throw new AccessDeniedException("No session cookie");
+            throw new ServiceException(400, "No session cookie");
         }
 
         try {
             jwtVerifier.verify(session.getValue());
         } catch (JWTVerificationException exception) {
-            throw new AccessDeniedException("Token not valid");
+            throw new ServiceException(400, "Token not valid");
         }
 
         filterChain.doFilter(servletRequest, servletResponse);
