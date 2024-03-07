@@ -56,7 +56,7 @@ function  createUser() {
         password: "TESTESTTEST",
         role: "Azubi",
         vorname: "string",
-        nachname: "string"
+        nachname: "string",
         cookie: "JSESSIONID=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZXNzaW9uIiwibmJmIjoxNzA5ODA4NTY2LCJpc3MiOiJuYWNod2Vpc2VCYWNrZW5kIiwiZXhwIjoxNzA5ODk0OTY1LCJ1c2VySWQiOjEsImlhdCI6MTcwOTgwODU2NX0.4P2f-XLQPzYOlW1NdfNyV_9uae1WonNGJtPwvcv9H0k"
     };
 
