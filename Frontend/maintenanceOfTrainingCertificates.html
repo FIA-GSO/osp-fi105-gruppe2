@@ -21,7 +21,7 @@
 					<label for="trainingWeekEnd">bis:</label>
 					<input type="date" id="trainingWeekEnd" value="2023-01-18">
 				</div>
-				<table class="trainingCertificateTable">
+				<table class="trainingCertificateTable" id="trainingCertificateTable">
 					<tr class="tableHeader">
 						<th class="tableHeaderCell"></th>
 						<th class="tableHeaderCell">Ausgeführte Arbeiten, Unterricht usw.</th>
@@ -31,10 +31,10 @@
 					</tr>
 						<tr class="tableContent monday">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayMonday" >Montag</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
 							</td>
 							<td id="trainingTotalHoursMonday">
@@ -51,10 +51,10 @@
 					</tr>
 						<tr class="tableContent tuesday">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayTuesday" >Dienstag</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
 							</td>
 							<td id="trainingTotalHoursTuesday">
@@ -71,10 +71,10 @@
 					</tr>
 						<tr class="tableContent wednesday">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayWednesday" >Mittwoch</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
 							</td>
 							<td id="trainingTotalHoursWednesday">
@@ -91,10 +91,10 @@
 					</tr>
 						<tr class="tableContent thursday">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayThursday" >Donnerstag</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
 							</td>
 							<td id="trainingTotalHoursThursday">
@@ -111,10 +111,10 @@
 					</tr>
 						<tr class="tableContent friday">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayFriday" >Freitag</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
 							</td>
 							<td id="trainingTotalHoursFriday">
@@ -131,10 +131,10 @@
 					</tr>
 						<tr class="tableContent saturday">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDaySaturday" >Samstag</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
-							<td>
+							<td class="activitieContent">
 								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
 							</td>
 							<td id="trainingTotalHoursSaturday">
@@ -161,7 +161,7 @@
 					</tr>
 				</table>
 				<div class="btnBox">
-					<button class="btn">Speichern und Abschicken</button>
+					<button onclick="GetCertificateAsJson()" class="btn">Speichern und Abschicken</button>
 					<button class="btn">Speichern</button>
 					<button class="btn">Abbrechen</button>
 				</div>
