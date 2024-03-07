@@ -1,139 +1,170 @@
 <!DOCTYPE html>
 <html>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="mainStyle.css">
-   <link rel="stylesheet" href="trainingCertificateStyle.css">
-   <style>
-    table, th, td {
-      border:1px solid black;
-    }
-    </style>
-   <body>
-      <div class="trainingCertificate-wrapper">
-         <form id="trainingCertificateForm" class="trainingCertificate-form">
-            <label for="studentName">Name des/der Auszubildenen:</label>
-            <input type="text" id="studentName" value="Adrian Zubi" readonly>
-            <div class="flexbox">
-                <label for="trainingYear">Ausbildungsjahr:</label>
-                <input type="text" id="trainingYear" value="3">
-                <label for="department">Name des/der Auszubildenen:</label>
-                <input type="text" id="department" value="IT">
-            </div>
-            <div class="flexbox">
-                <label for="trainingWeekStart">Ausbildungswoche vom:</label>
-                <input type="date" id="trainingWeekStart" value="2023-01-12">
-                <label for="trainingWeekEnd">bis:</label>
-                <input type="date" id="trainingWeekEnd" value="2023-01-18">
-            </div>
-            <table class="trainingCertificateTable" style="width: 100%;">
-                <colgroup>
-                  <col span="1" style="background-color: #D6EEEE">
-                </colgroup>
-                <tr>
-                  <th></th>
-                  <th>Ausgeführte Arbeiten, Unterricht usw.</th>
-                  <th>Einzelstunden</th>
-                  <th>Gesamtstunden</th>
-                  <th>Abteilung</th>
-                </tr>
-                <tr>
-                  <td class="tableWeekDay">Montag</td>
-                  <td>
-                    <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
-                  </td>
-                  <td>
-                    <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
-                  </td>
-                  <td>
-                    <input type="number">
-                  </td>
-                  <td>
-                    <input type="text">
-                  </td>
-                </tr>
-                <tr>
-                <td class="tableWeekDay">Dienstag</td>
-                <td>
-                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
-                </td>
-                <td>
-                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
-                </td>
-                <td>
-                  <input type="number">
-                </td>
-                <td>
-                  <input type="text">
-                </td>
-                </tr>
-                <tr>
-                <td class="tableWeekDay">Mittwoch</td>
-                <td>
-                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
-                </td>
-                <td>
-                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
-                </td>
-                <td>
-                  <input type="number">
-                </td>
-                <td>
-                  <input type="text">
-                </td>
-                </tr>
-                <tr>
-                <td class="tableWeekDay">Donnerstag</td>
-                <td>
-                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
-                </td>
-                <td>
-                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
-                </td>
-                <td>
-                  <input type="number">
-                </td>
-                <td>
-                  <input type="text">
-                </td>
-                </tr>
-                <tr>
-                <td class="tableWeekDay">Freitag</td>
-                <td>
-                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
-                </td>
-                <td>
-                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
-                </td>
-                <td>
-                  <input type="number">
-                </td>
-                <td>
-                  <input type="text">
-                </td>
-                </tr>
-                <tr>
-                <td class="tableWeekDay">Samstag</td>
-                <td>
-                  <textarea type="text" placeholder="Hier ist deine Textbox"></textarea>
-                </td>
-                <td>
-                  <textarea type="text" placeholder="Gesamt Zahlen"></textarea>
-                </td>
-                <td>
-                  <input type="number">
-                </td>
-                <td>
-                  <input type="text">
-                </td>
-                </tr>
-                </table>
-            <div class="flexbox">
-                <button type="submit" class="btn">Senden und Abschicken</button>
-                <button type="submit" class="btn">Speichern</button>
-                <button type="submit" class="btn">Abbrechen</button>
-            </div>
-         </form>
-      </div>
-   </body>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="mainStyle.css">
+	<link rel="stylesheet" href="trainingCertificateStyle.css">
+	<script src="tainingCertificate.js"></script>
+	<body>
+		<div class="trainingCertificate-wrapper">
+				<label for="studentName">Name des/der Auszubildenen:</label>
+				<input type="text" id="studentName" value="Adrian Zubi" readonly>
+				<div class="flexbox">
+					<label for="trainingYear">Ausbildungsjahr:</label>
+					<input type="number" id="trainingYear" value="3">
+					<label for="department">Name des/der Auszubildenen:</label>
+					<input type="text" id="department" value="IT">
+				</div>
+				<div class="flexbox">
+					<label for="trainingWeekStart">Ausbildungswoche vom:</label>
+					<input type="date" id="trainingWeekStart" value="2023-01-12">
+					<label for="trainingWeekEnd">bis:</label>
+					<input type="date" id="trainingWeekEnd" value="2023-01-18">
+				</div>
+				<table class="trainingCertificateTable" id="trainingCertificateTable">
+					<tr class="tableHeader">
+						<th class="tableHeaderCell"></th>
+						<th class="tableHeaderCell">Ausgeführte Arbeiten, Unterricht usw.</th>
+						<th class="tableHeaderCell">Einzelstunden</th>
+						<th class="tableHeaderCell">Gesamtstunden</th>
+						<th class="tableHeaderCell">Abteilung</th>
+					</tr>
+						<tr class="tableContent monday">
+							<td rowspan="2" class="tableWeekDay" id="tableWeekDayMonday" >Montag</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+							</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+							</td>
+							<td id="trainingTotalHoursMonday">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+							</td>
+							<td id="departmentMonday">
+								<input class="department" type="text" placeholder="Abteilung">
+							</td>
+						</tr>
+					<tr id="MondayAddRow">
+						<td colspan="4" class="addRowCell">
+							<button onclick="addContentRow('Monday')" class="addRowButton">+</button>
+						</td>
+					</tr>
+						<tr class="tableContent tuesday">
+							<td rowspan="2" class="tableWeekDay" id="tableWeekDayTuesday" >Dienstag</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+							</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+							</td>
+							<td id="trainingTotalHoursTuesday">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+							</td>
+							<td id="departmentTuesday">
+								<input class="department" type="text" placeholder="Abteilung">
+							</td>
+						</tr>
+					<tr id="TuesdayAddRow">
+						<td colspan="4" class="addRowCell">
+							<button onclick="addContentRow('Tuesday')" class="addRowButton">+</button>
+						</td>
+					</tr>
+						<tr class="tableContent wednesday">
+							<td rowspan="2" class="tableWeekDay" id="tableWeekDayWednesday" >Mittwoch</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+							</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+							</td>
+							<td id="trainingTotalHoursWednesday">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+							</td>
+							<td id="departmentWednesday">
+								<input class="department" type="text" placeholder="Abteilung">
+							</td>
+						</tr>
+					<tr id="WednesdayAddRow">
+						<td colspan="4" class="addRowCell">
+							<button onclick="addContentRow('Wednesday')" class="addRowButton">+</button>
+						</td>
+					</tr>
+						<tr class="tableContent thursday">
+							<td rowspan="2" class="tableWeekDay" id="tableWeekDayThursday" >Donnerstag</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+							</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+							</td>
+							<td id="trainingTotalHoursThursday">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+							</td>
+							<td id="departmentThursday">
+								<input class="department" type="text" placeholder="Abteilung">
+							</td>
+						</tr>
+					<tr id="ThursdayAddRow">
+						<td colspan="4" class="addRowCell">
+							<button onclick="addContentRow('Thursday')" class="addRowButton">+</button>
+						</td>
+					</tr>
+						<tr class="tableContent friday">
+							<td rowspan="2" class="tableWeekDay" id="tableWeekDayFriday" >Freitag</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+							</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+							</td>
+							<td id="trainingTotalHoursFriday">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+							</td>
+							<td id="departmentFriday">
+								<input class="department" type="text" placeholder="Abteilung">
+							</td>
+						</tr>
+					<tr id="FridayAddRow">
+						<td colspan="4" class="addRowCell">
+							<button onclick="addContentRow('Friday')" class="addRowButton">+</button>
+						</td>
+					</tr>
+						<tr class="tableContent saturday">
+							<td rowspan="2" class="tableWeekDay" id="tableWeekDaySaturday" >Samstag</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+							</td>
+							<td class="activitieContent">
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+							</td>
+							<td id="trainingTotalHoursSaturday">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+							</td>
+							<td id="departmentSaturday">
+								<input class="department" type="text" placeholder="Abteilung">
+							</td>
+						</tr>
+					<tr id="SaturdayAddRow">
+						<td colspan="4" class="addRowCell">
+							<button onclick="addContentRow('Saturday')" class="addRowButton">+</button>
+						</td>
+					</tr>
+					<tr class="totalTableContent">
+						<td class="totalTableContentContent" colspan="3">
+						</td>
+						<td class="totalTableContentContent">
+							<input type="number" value="40" readonly>
+						</td>
+						<td class="totalTableContentContent">
+							<input type="text" value="Adrian Zubi" readonly>
+						</td>
+					</tr>
+				</table>
+				<div class="btnBox">
+					<button onclick="GetCertificateAsJson()" class="btn">Speichern und Abschicken</button>
+					<button class="btn">Speichern</button>
+					<button class="btn">Abbrechen</button>
+				</div>
+		</div>
+	</body>
 </html>
