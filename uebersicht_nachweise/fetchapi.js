@@ -65,6 +65,7 @@ function  createUser() {
         headers: {
             'Content-Type': 'application/json'
         },
+        body: JSON.stringify(create_data),
     };
     fetch('http://10.133.14.146:8080/', options)
         .then(response=>{
