@@ -18,8 +18,13 @@ function handleSubmit(event) {
         body: json
     }
 
-    fetch('API-Rout', apiCall)
+    let response = fetch('API-Rout', apiCall)
         .then(res => res.json());
+
+    if(response) {
+        document.getElementById('errorLabel').insertAdjacentHTML("afterbegin", response.error);
+        return;
+    }
 }
 
 function getJsonFromForm(form) {
