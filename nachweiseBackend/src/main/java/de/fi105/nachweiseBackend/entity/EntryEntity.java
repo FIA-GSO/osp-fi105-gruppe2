@@ -8,24 +8,19 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@Table(name = "Eintrag")
+@Table(name = "eintrag")
 @Entity
 public class EntryEntity {
 
     @Id
-    @Column(name = "idEintrag")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idEintrag")
     private Integer id;
 
     @Column(name = "ausgefuehrteArbeit")
-    private String doneWork;
+    private String workDone;
 
-    @Column(name = "einzelStunden")
-    private String hours;
+    @Column(name = "einzelSunden")
+    private Integer hours;
 
-    @Column(name = "stundenGesamt")
-    private int allHours;
-
-    @Column(name = "abteilung")
-    private String department;
 }

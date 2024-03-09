@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Table(name = "Quittierung")
 @Entity
-public class acknowledgmentEntity {
+public class AcknowledgmentEntity {
 
     @Id
     @Column(name = "idQuittierung")

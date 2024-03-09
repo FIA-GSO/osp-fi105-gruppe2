@@ -10,7 +10,7 @@ import java.sql.Date;
 @Getter
 @Setter
 @Accessors(chain = true)
-@Table(name = "Nachweis")
+@Table(name = "nachweis")
 @Entity
 public class ProofEntity {
 
@@ -22,31 +22,47 @@ public class ProofEntity {
     @Column(name = "auszubildenderId")
     private Integer apprenticeId;
 
-    @Column(name = "ggfAusbildungsAbteilung")
-    private String info;
-
     @Column(name = "startAusbildungswoche")
     private Date weekStartDate;
 
-    @OneToOne
-    @JoinColumn(name = "eintragMontagId", referencedColumnName = "idEintrag")
-    private EntryEntity monday;
+    @Column(name = "eintragMontagId")
+    private int monday;
 
-    @OneToOne
-    @JoinColumn(name = "eintragDienstagId", referencedColumnName = "idEintrag")
-    private EntryEntity tuesday;
+    @Column(name = "eintragDienstagId")
+    private int tuesday;
 
-    @OneToOne
-    @JoinColumn(name = "eintragMittwochId", referencedColumnName = "idEintrag")
-    private EntryEntity wednesday;
+    @Column(name = "eintragMittwochId")
+    private int wednesday;
 
-    @OneToOne
-    @JoinColumn(name = "eintragDonnerstagId", referencedColumnName = "idEintrag")
-    private EntryEntity thursday;
+    @Column(name = "eintragDonnerstagId")
+    private int thursday;
 
-    @OneToOne
-    @JoinColumn(name = "eintragFreitagId", referencedColumnName = "idEintrag")
-    private EntryEntity friday;
+    @Column(name = "eintragFreitagId")
+    private int friday;
+
+    @Column(name = "eintragSamstagId")
+    private int saturday;
+
+    @Column(name = "abteilungMontag")
+    private String mondayDepartment;
+
+    @Column(name = "abteilungDienstag")
+    private String tuesdayDepartment;
+
+    @Column(name = "abteilungMittwoch")
+    private String wednesdayDepartment;
+
+    @Column(name = "abteilungDonnerstag")
+    private String thursdayDepartment;
+
+    @Column(name = "abteilungFreitag")
+    private String fridayDepartment;
+
+    @Column(name = "abteilungSamstag")
+    private String saturdayDepartment;
+
+    @Column(name = "zurQuittierung")
+    private boolean requested;
 
 }
 
