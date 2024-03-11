@@ -138,3 +138,15 @@ table, th, td {
 	text-align: center; 
     vertical-align: middle;
 }
+
+/* commentArea */
+.commentArea {
+	display: flex;
+	align-items: top;
+}
+
+/* comment */
+.comment {
+	width: 800px;
+	margin-left: 5px;
+}

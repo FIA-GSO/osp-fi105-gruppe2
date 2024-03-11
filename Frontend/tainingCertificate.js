@@ -1,3 +1,7 @@
+window.onload = function() {
+    SetHeaderData();
+}
+
 function addContentRow(day) {
     //Add Row
     document.getElementById(day + 'AddRow')
@@ -23,6 +27,10 @@ function addContentRow(day) {
     tableWeekDay.rowSpan = newtableWeekDayRowSpan;
     trainingTotalHours.rowSpan = newTrainingTotalHoursRowSpan;
     department.rowSpan = newDepartmentRowSpan;
+}
+
+function GoToOverview(){
+    window.location.href = 'https://stackoverflow.com/questions/1226714/how-to-get-the-browser-to-navigate-to-url-in-javascript';
 }
 
 function GetCertificateAsJson(proofRequested) {
@@ -76,5 +84,32 @@ function GetCertificateAsJson(proofRequested) {
         requested: proofRequested
       }
 
-      return contentJson;
+      SendRequest(contentJson);
+}
+
+//To be Done
+function SendRequest(content){
+
+}
+
+//To be Done
+function SetHeaderData(){
+    document.getElementById('studentName').value = "Adrian";
+    document.getElementById('trainingYear').value = "3";
+    document.getElementById('trainingName').value = "IT";
+    document.getElementById('trainingWeekStart').value = "2023-10-08";
+    document.getElementById('trainingWeekEnd').value = "2023-10-15";
+}
+
+// To be Done
+function SetComment(comment) {
+    if(comment == null) {
+        return;
+    }
+    document.getElementById('trainingCertificateTable').insertAdjacentHTML("afterend",
+    `				
+    <div class="commentArea">
+        <label for="comment">Kommentar:</label>
+        <textarea id="comment" class="comment" readonly>` + comment +`</textarea>
+    </div>`);
 }
