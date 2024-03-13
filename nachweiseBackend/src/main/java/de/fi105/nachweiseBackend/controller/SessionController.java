@@ -5,28 +5,27 @@ import com.auth0.jwt.algorithms.Algorithm;
 import de.fi105.nachweiseBackend.api.SessionApiDelegate;
 import de.fi105.nachweiseBackend.model.Password;
 import de.fi105.nachweiseBackend.model.UserGet;
-import de.fi105.nachweiseBackend.service.UserService;
+import de.fi105.nachweiseBackend.service.AuthorizationService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 
 import java.util.Date;
 
 @Component
-public class SessionController extends BaseController implements SessionApiDelegate {
+public class SessionController implements SessionApiDelegate {
 
     private final Algorithm algorithm;
-    private final UserService userService;
+    private final AuthorizationService authorizationService;
 
-    public SessionController(Algorithm algorithm, UserService userService) {
+    public SessionController(Algorithm algorithm, AuthorizationService authorizationService) {
         this.algorithm = algorithm;
-        this.userService = userService;
+        this.authorizationService = authorizationService;
     }
 
     @Override
     public ResponseEntity<Void> getSession(String username, Password password) {
-        UserGet user = userService.authenticate(username, password.getPassword());
+        UserGet user = authorizationService.authenticate(username, password.getPassword());
 
         String jwtToken = JWT.create()
                 .withIssuer("nachweiseBackend")

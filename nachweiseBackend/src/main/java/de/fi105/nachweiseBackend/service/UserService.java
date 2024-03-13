@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 
+import java.util.Optional;
+
 import static de.fi105.nachweiseBackend.mapper.UserMapper.passwordToHash;
 
 @Component
@@ -62,27 +64,20 @@ public class UserService {
         return userMapper.toUserGet(save);
     }
 
-    public UserGet authenticate(String username, String password) {
-        String hash = UserMapper.passwordToHash(password);
-        var result = personRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException());
-        if (!result.getPasswordHash().equals(hash)) {
-            throw new RuntimeException();
-        }
-        return userMapper.toUserGet(result);
-    }
-
     @PostConstruct
     @Transactional
     public void init() {
-        PersonEntity personEntity = new PersonEntity();
-        personEntity.setUsername("root");
-        personEntity.setPasswordHash(UserMapper.passwordToHash("root"));
-        personEntity.setRole(1);
-        personEntity.setEmail("asdf");
-        personEntity.setLastname("user");
-        personEntity.setPrename("root");
-        personRepository.save(personEntity);
+        Optional<PersonEntity> byId = personRepository.findById(1);
+        if (byId.isEmpty()) {
+            PersonEntity personEntity = new PersonEntity();
+            personEntity.setUsername("root");
+            personEntity.setPasswordHash(UserMapper.passwordToHash("root"));
+            personEntity.setRole(3);
+            personEntity.setEmail("asdf");
+            personEntity.setLastname("user");
+            personEntity.setPrename("root");
+            personRepository.save(personEntity);
+        }
     }
 
 }

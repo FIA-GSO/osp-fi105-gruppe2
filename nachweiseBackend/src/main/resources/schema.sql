@@ -2,7 +2,6 @@ drop database digitalisierungAusbildungsnachweis;
 create database digitalisierungAusbildungsnachweis;
 use digitalisierungAusbildungsnachweis;
 
-
 create table if not exists eintrag
 (
     idEintrag         int auto_increment primary key,
@@ -27,7 +26,7 @@ create table if not exists person
     passwordhash varchar(255) not null,
     vorname      varchar(32)  not null,
     nachname     varchar(32)  not null,
-    rolle        int(1)       not null comment '1 = Pruefer/Lehrer; 2 = Ausbilder; 3 = auszubildender'
+    rolle        int(1)       not null comment '0 = Pruefer/Lehrer; 1 = Ausbilder; 2 = Auszubildender 3 = Admin'
     );
 
 create table if not exists ausbildung
@@ -56,12 +55,13 @@ create table if not exists nachweis
     idNachweis              int auto_increment
     primary key,
     zurQuittierung          tinyint     not null,
-    auszubildenderId        int         not null,
+    quittiert               tinyint not null,
+    ausbildungId        int unsigned         not null,
     startAusbildungswoche   date        not null,
     eintragMontagId         int         not null,
-    eintagDienstagId        int         not null,
-    eintagMittwochId        int         not null,
-    eintagDonnerstagId      int         not null,
+    eintragDienstagId        int         not null,
+    eintragMittwochId        int         not null,
+    eintragDonnerstagId      int         not null,
     eintragFreitagId        int         not null,
     eintragSamstagId        int         null,
     abteilungMontag varchar(255) not null,
@@ -69,20 +69,22 @@ create table if not exists nachweis
     abteilungMittwoch varchar(255) not null,
     abteilungDonnerstag varchar(255) not null,
     abteilungFreitag varchar(255) not null,
-    abteilungSamstag varchar(255) not null
+    abteilungSamstag varchar(255) not null,
+    constraint nachweis_ibfk_1
+    foreign key (ausbildungId) references ausbildung(idAusbildung)
 );
 
-create index auszubildenderId
-    on nachweis (auszubildenderId);
+create index ausbildungsId
+    on nachweis (ausbildungId);
 
 create index eintagDienstagId
-    on nachweis (eintagDienstagId);
+    on nachweis (eintragDienstagId);
 
 create index eintagDonnerstagId
-    on nachweis (eintagDonnerstagId);
+    on nachweis (eintragDonnerstagId);
 
 create index eintagMittwochId
-    on nachweis (eintagMittwochId);
+    on nachweis (eintragMittwochId);
 
 create index eintragFreitagId
     on nachweis (eintragFreitagId);
@@ -98,7 +100,6 @@ create table if not exists quittierung
     idQuittierung int auto_increment
     primary key,
     nachweisId    int         not null,
-    quittiert     tinyint     not null,
     kommentar     varchar(45) null,
     constraint quittierung_ibfk_1
     foreign key (nachweisId) references nachweis (idNachweis)

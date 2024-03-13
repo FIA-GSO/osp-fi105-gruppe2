@@ -12,9 +12,9 @@ servers:
 
 paths:
   /user:
+    parameters:
+      - $ref: '#/components/parameters/sessionId'
     post:
-      security:
-        - cookieAuth: []
       operationId: postUser
       tags:
         - User
@@ -32,31 +32,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/userGet'
-
-  /user/{userName}:
-    parameters:
-      - name: userName
-        in: path
-        required: true
-        schema:
-          type: string
-    get:
-      security:
-        - cookieAuth: []
-      operationId: getUser
-      tags:
-        - User
-      description: get user information
-      responses:
-        200:
-          description: user data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/userGet'
     patch:
-      security:
-        - cookieAuth: []
       operationId: patchUser
       tags:
         - User
@@ -75,8 +51,47 @@ paths:
               schema:
                 $ref: '#/components/schemas/userGet'
 
-  /user/{userName}/requested:
+  /user/{userName}:
     parameters:
+      - $ref: '#/components/parameters/sessionId'
+      - name: userName
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getUser
+      tags:
+        - User
+      description: get user information
+      responses:
+        200:
+          description: user data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userGet'
+
+  /apprentice:
+    parameters:
+      - $ref: '#/components/parameters/sessionId'
+    get:
+      operationId: findUsers
+      tags:
+        - Apprentices
+      responses:
+        200:
+          description: Get list of apprentices which proofs the logged in user ca see
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+  /apprentice/{userName}/requested:
+    parameters:
+      - $ref: '#/components/parameters/sessionId'
       - name: userName
         in: path
         required: true
@@ -84,7 +99,7 @@ paths:
           type: string
     get:
       tags:
-        - Proof
+        - Apprentices
       description: get proofs requested for acknowledgement
       operationId: getRequestedForUser
       responses:
@@ -95,8 +110,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/proofPreview'
 
-  /user/{userName}/proofs:
+  /apprentice/{userName}/proofs:
     parameters:
+      - $ref: '#/components/parameters/sessionId'
       - name: userName
         in: path
         required: true
@@ -104,7 +120,7 @@ paths:
           type: string
     get:
       tags:
-        - Proof
+        - Apprentices
       description: get proofs which are acknowledged
       operationId: getForUser
       responses:
@@ -116,9 +132,9 @@ paths:
                 $ref: '#/components/schemas/proofPreview'
 
   /apprenticeship:
+    parameters:
+      - $ref: '#/components/parameters/sessionId'
     post:
-      security:
-        - cookieAuth: []
       operationId: postApprenticeship
       tags:
         - Apprenticeship
@@ -138,14 +154,13 @@ paths:
 
   /apprenticeship/{id}:
     parameters:
+      - $ref: '#/components/parameters/sessionId'
       - name: id
         in: path
         required: true
         schema:
           type: integer
     patch:
-      security:
-        - cookieAuth: []
       operationId: patchApprenticeship
       description: change ending date
       tags:
@@ -190,6 +205,8 @@ paths:
                 example: 'JSESSIONID=asdlfjkhasdfieu384=='
 
   /proof:
+    parameters:
+      - $ref: '#/components/parameters/sessionId'
     post:
       tags:
         - Proof
@@ -209,6 +226,8 @@ paths:
                 $ref: '#/components/schemas/proofGet'
 
   /proof/preview:
+    parameters:
+      - $ref: '#/components/parameters/sessionId'
     get:
       tags:
         - Proof
@@ -224,6 +243,7 @@ paths:
 
   /proof/{id}:
     parameters:
+      - $ref: '#/components/parameters/sessionId'
       - name: id
         in: path
         schema:
@@ -260,6 +280,7 @@ paths:
 
   /proof/{id}/acknowledgement:
     parameters:
+      - $ref: '#/components/parameters/sessionId'
       - name: id
         in: path
         schema:
@@ -295,8 +316,14 @@ paths:
                 $ref: '#/components/schemas/acknowledgementList'
 
 components:
-  schemas:
+  parameters:
+    sessionId:
+      name: "JSESSIONID"
+      in: cookie
+      schema:
+        type: string
 
+  schemas:
     email:
       type: object
       properties:
@@ -312,9 +339,9 @@ components:
           example: 'asd/8+_:#'
 
     userPatch:
-        allOf:
-          - $ref: '#/components/schemas/email'
-          - $ref: '#/components/schemas/password'
+      allOf:
+        - $ref: '#/components/schemas/email'
+        - $ref: '#/components/schemas/password'
 
     personalData:
       type: object
@@ -325,6 +352,7 @@ components:
             - 'Azubi'
             - 'Ausbilder'
             - 'Prüfer/Lehrer'
+            - 'Ad'
         vorname:
           type: string
         nachname:
@@ -404,7 +432,7 @@ components:
         - hours
       properties:
         entries:
-            $ref: '#/components/schemas/dayEntryData'
+          $ref: '#/components/schemas/dayEntryData'
         department:
           type: string
         hours:
@@ -417,7 +445,7 @@ components:
         - department
       properties:
         entries:
-            $ref: '#/components/schemas/dayEntryData'
+          $ref: '#/components/schemas/dayEntryData'
         department:
           type: string
 
@@ -425,7 +453,7 @@ components:
       type: object
       properties:
         entries:
-            $ref: '#/components/schemas/dayEntryData'
+          $ref: '#/components/schemas/dayEntryData'
         department:
           type: string
 
@@ -551,9 +579,3 @@ components:
               - REQUESTED
               - REJECTED
               - ACCEPTED
-
-  securitySchemes:
-    cookieAuth:
-      type: apiKey
-      in: cookie
-      name: JSESSIONID

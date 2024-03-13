@@ -1,4 +1,4 @@
-package de.fi105.nachweiseBackend;
+package de.fi105.nachweiseBackend.configuration;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;

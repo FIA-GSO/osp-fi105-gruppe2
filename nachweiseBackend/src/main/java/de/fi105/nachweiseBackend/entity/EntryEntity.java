@@ -17,10 +17,10 @@ public class EntryEntity {
     @Column(name = "idEintrag")
     private Integer id;
 
-    @Column(name = "ausgefuehrteArbeit")
+    @Column(name = "ausgefuerteArbeit")
     private String workDone;
 
-    @Column(name = "einzelSunden")
+    @Column(name = "einzelStunden")
     private Integer hours;
 
 }

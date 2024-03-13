@@ -41,6 +41,9 @@ public interface UserMapper {
             case AUSBILDER -> {
                 return 2;
             }
+            case ADMIN -> {
+                return 3;
+            }
             default -> throw new RuntimeException();
         }
     }
@@ -55,6 +58,9 @@ public interface UserMapper {
             }
             case 2 -> {
                 return UserGet.RoleEnum.AUSBILDER;
+            }
+            case 3 -> {
+                return UserGet.RoleEnum.ADMIN;
             }
             default -> throw new RuntimeException();
         }

@@ -14,4 +14,5 @@ public interface DayRepository extends JpaRepository<DayEntity, Integer> {
     int getTopId();
 
     List<DayEntity> findAllByDayId(int dayId);
+
 }

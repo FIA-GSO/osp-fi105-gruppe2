@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-@Table(name = "Quittierung")
+@Table(name = "quittierung")
 @Entity
 public class AcknowledgmentEntity {
 
@@ -19,9 +19,6 @@ public class AcknowledgmentEntity {
 
     @Column(name = "nachweisId")
     private Integer proofId;
-
-    @Column(name = "quittiert")
-    private boolean acknowlegded;
 
     @Column(name = "kommentar")
     private String comment;

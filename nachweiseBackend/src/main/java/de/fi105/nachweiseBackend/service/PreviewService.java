@@ -7,6 +7,7 @@ import de.fi105.nachweiseBackend.repository.ProofRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,24 +16,47 @@ import java.util.List;
 public class PreviewService {
 
     private final ProofRepository proofRepository;
-    private final AcknowledgementService acknowledgementService;
+    private final ApprenticeshipService apprenticeshipService;
 
     public List<ProofPreviewInner> getPreview(int userId) {
-        var entities = proofRepository.findAllByApprenticeId(userId);
+        var apprenticeship = apprenticeshipService.getActiveApprenticeShip(userId, LocalDate.now())
+                .orElseThrow(RuntimeException::new).getId();
+        return createPreview(proofRepository.findAllByApprenticeshipId(apprenticeship));
+    }
+
+    public List<ProofPreviewInner> getRequestedPreview(int userId) {
+        var apprenticeship = apprenticeshipService.getActiveApprenticeShip(userId, LocalDate.now())
+                .orElseThrow(RuntimeException::new).getId();
+        return createPreview(
+                proofRepository.findAllByApprenticeshipId(apprenticeship).stream()
+                        .filter(e -> !e.isReviewed())
+                        .filter(ProofEntity::isRequested).toList()
+        );
+    }
+
+    public List<ProofPreviewInner> getAcceptedPreview(int userId) {
+        var apprenticeship = apprenticeshipService.getActiveApprenticeShip(userId, LocalDate.now())
+                .orElseThrow(RuntimeException::new).getId();
+        return createPreview(
+                proofRepository.findAllByApprenticeshipId(apprenticeship).stream()
+                        .filter(ProofEntity::isRequested)
+                        .filter(ProofEntity::isReviewed).toList()
+        );
+    }
+
+    private List<ProofPreviewInner> createPreview(List<ProofEntity> entities) {
         var output = new ArrayList<ProofPreviewInner>();
         for (var entity : entities) {
-            AcknowledgementList ack = acknowledgementService.getAcknowledgementsForProof(entity.getId());
-
             output.add(new ProofPreviewInner()
-                    .status(getStatus(entity, ack))
+                    .status(getStatus(entity))
                     .weekStartDate(String.valueOf(entity.getWeekStartDate()))
                     .id(entity.getId()));
         }
         return output;
     }
 
-    private ProofPreviewInner.StatusEnum getStatus(ProofEntity entity, AcknowledgementList acknowledgementList) {
-        if (acknowledgementList.getAcknowledged()) {
+    public ProofPreviewInner.StatusEnum getStatus(ProofEntity entity) {
+        if (entity.isReviewed()) {
             if (!entity.isRequested()) {
                 return ProofPreviewInner.StatusEnum.REJECTED;
             }
@@ -44,9 +68,6 @@ public class PreviewService {
         }
 
         return ProofPreviewInner.StatusEnum.SAVED;
-
     }
-
-
 
 }

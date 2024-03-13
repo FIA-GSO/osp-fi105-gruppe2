@@ -19,8 +19,8 @@ public class ProofEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "auszubildenderId")
-    private Integer apprenticeId;
+    @Column(name = "ausbildungId")
+    private Integer apprenticeshipId;
 
     @Column(name = "startAusbildungswoche")
     private Date weekStartDate;
@@ -63,6 +63,9 @@ public class ProofEntity {
 
     @Column(name = "zurQuittierung")
     private boolean requested;
+
+    @Column(name = "quittiert")
+    private boolean reviewed;
 
 }
 

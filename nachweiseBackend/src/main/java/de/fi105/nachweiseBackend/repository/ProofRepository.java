@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ProofRepository extends JpaRepository<ProofEntity, Integer> {
 
-    List<ProofEntity> findAllByApprenticeId(int apprenticeId);
+    List<ProofEntity> findAllByApprenticeshipId(int apprenticeshipId);
 
 }
