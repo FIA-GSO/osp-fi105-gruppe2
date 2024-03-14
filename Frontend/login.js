@@ -6,7 +6,6 @@ async function handleSubmit(event) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Accept' : 'text/plain'
         },
         body: {
             'password': json.password
