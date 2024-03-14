@@ -24,7 +24,7 @@ public class SessionController implements SessionApiDelegate {
     }
 
     @Override
-    public ResponseEntity<Void> getSession(String username, Password password) {
+    public ResponseEntity<String> getSession(String username, Password password) {
         UserGet user = authorizationService.authenticate(username, password.getPassword());
 
         String jwtToken = JWT.create()
@@ -36,9 +36,7 @@ public class SessionController implements SessionApiDelegate {
                 .withNotBefore(new Date(System.currentTimeMillis() + 1000L))
                 .sign(algorithm);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Set-Cookie", "JSESSIONID=" + jwtToken);
-        return ResponseEntity.noContent().headers(headers).build();
+        return ResponseEntity.ok(jwtToken);
     }
 
 }

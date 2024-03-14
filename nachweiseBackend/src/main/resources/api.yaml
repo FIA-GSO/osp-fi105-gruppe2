@@ -196,13 +196,12 @@ paths:
       tags:
         - Session
       responses:
-        204:
+        200:
           description: setting a session cookie
-          headers:
-            Set-Cookie:
+          content:
+            application/json:
               schema:
                 type: string
-                example: 'JSESSIONID=asdlfjkhasdfieu384=='
 
   /proof:
     parameters:
@@ -319,7 +318,7 @@ components:
   parameters:
     sessionId:
       name: "JSESSIONID"
-      in: cookie
+      in: header
       schema:
         type: string
 
@@ -352,7 +351,7 @@ components:
             - 'Azubi'
             - 'Ausbilder'
             - 'Prüfer/Lehrer'
-            - 'Ad'
+            - 'Admin'
         vorname:
           type: string
         nachname:

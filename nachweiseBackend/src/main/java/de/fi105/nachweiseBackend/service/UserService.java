@@ -67,7 +67,7 @@ public class UserService {
     @PostConstruct
     @Transactional
     public void init() {
-        Optional<PersonEntity> byId = personRepository.findById(1);
+        Optional<PersonEntity> byId = personRepository.findByUsername("root");
         if (byId.isEmpty()) {
             PersonEntity personEntity = new PersonEntity();
             personEntity.setUsername("root");
