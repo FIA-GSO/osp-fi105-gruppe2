@@ -19,3 +19,16 @@ function setRequestedCetificate() {
 function removeRequestedCetificate() {
   localStorage.removeItem(cetificatename);
 }
+
+const studentname = "student"
+function setRequestedCetificate(student) {
+   localStorage.setItem(studentname, student);
+}
+
+function setRequestedCetificate() {
+  return localStorage.getItem(studentname);
+}
+
+function removeRequestedCetificate() {
+  localStorage.removeItem(studentname);
+}
