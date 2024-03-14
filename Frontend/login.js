@@ -18,7 +18,7 @@ function handleSubmit(event) {
         body: json.password
     }
 
-    let response = fetch('/session/' + json.name, apiCall)
+    let response = fetch(host + '/session/' + json.name, apiCall)
         .then(res => res.json());
 
     if(response) {
