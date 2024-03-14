@@ -40,13 +40,12 @@ function handleSubmit(event) {
     //Zur Seite gehen
     switch(user.role) {
         case "Azubi":
-            window.location.href = '...';
+            window.location.href = 'nachweis_uebersicht.html';
             break;
             default:
-                window.location.href = '...';
+                window.location.href = 'azubi_uebersicht.html';
                 break;
-    }
-    
+    } 
 }
 
 function getJsonFromForm(form) {
