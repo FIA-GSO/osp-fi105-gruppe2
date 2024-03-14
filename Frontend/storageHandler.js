@@ -1,3 +1,13 @@
+const usernamename = "username"
+function setUsername(name) {
+   localStorage.setItem(usernamename, name);
+}
+
+function getUsername() {
+  return localStorage.getItem(usernamename);
+}
+
+
 const rolename = "role"
 function setRole(role) {
    localStorage.setItem(rolename, role);
