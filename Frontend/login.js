@@ -26,11 +26,18 @@ function handleSubmit(event) {
         return;
     }
 
-    let user = fetch(host + '/user' + json.name)
-    .then(res => res.json());
+    //Session speichern
+    setSession(response);
 
+    // User speichern
+    setUsername(json.name);
+
+    // Rolle speichern
+    let user = fetch(host + '/user/' + json.name)
+    .then(res => res.json());
     setRole(user.role);
     
+    //Zur Seite gehen
     switch(user.role) {
         case "Azubi":
             window.location.href = '...';

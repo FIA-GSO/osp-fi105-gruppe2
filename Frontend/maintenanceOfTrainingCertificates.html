@@ -7,13 +7,16 @@
 	<link rel="stylesheet" href="navbarStyle.css">
 	<script src="tainingCertificate.js"></script>
 	<script src="navbar.js"></script>
+	<script src="storageHandler.js"></script>
 	<body>
 		<nav class="navbar" id="navbarList">
 		</nav>
 		<hr>
 		<div class="trainingCertificate-wrapper">
-				<label for="studentName">Name des/der Auszubildenen:</label>
-				<input type="text" id="studentName" readonly>
+				<div class="flexbox">
+					<label for="studentName">Name des/der Auszubildenen:</label>
+					<input type="text" id="studentName" readonly>
+				</div>
 				<div class="flexbox">
 					<label for="trainingYear">Ausbildungsjahr:</label>
 					<input type="number" id="trainingYear" readonly>
