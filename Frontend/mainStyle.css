@@ -4,7 +4,7 @@
 	--content_headings: #242323;
 	--content_border_color: #6f6e6e;
 	--content_input_placeholder_color: #8c8b8b;
-	--color_accent: #5b9bd5;
+	--color_accent: #dd4d4d;
 }
 
 * {
@@ -62,7 +62,7 @@ input::placeholder {
 .btn:hover {
 	color: var(--content_background_color);
 	background: var(--color_accent);
-	border-color: transparent;
+	border-width: 0px;
 }
 
 /* flexbox */
