@@ -26,7 +26,14 @@ function handleSubmit(event) {
         return;
     }
 
-    let user = fetch(host + '/user' + json.name)
+    //Session speichern
+    setSession(response);
+
+    // User speichern
+    setUsername(json.name);
+
+    // Rolle speichern
+    let user = fetch(host + '/user/' + json.name)
     .then(res => res.json());
 
     setRole(user.role);
