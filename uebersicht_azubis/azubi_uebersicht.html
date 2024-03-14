@@ -17,13 +17,11 @@
     <script src="../Frontend/navbar.js"></script>
 </head>
 <!--<body onload="testFetchJsoNP('http://10.133.14.146:8080/session')">-->
-<body onload="fetchSession()">
+<body>
 <nav class="navbar" id="navbarList"></nav>
 <div class="overview-table_header">
         <div class="h1+bg">
             <div class="tableBackground">
-                <div class="head">
-            </div>
                     <label>Übersicht der Auszubildenden</label>
                 <div class="azubi_info">
                     <p id="name_des_azubis"> Name des Azubis</p>
@@ -35,9 +33,6 @@
                              <input type="search" name="search_field" id="search" placeholder="Search..." >
                             <button id= "search_button"  onclick="fetchSession()" class="search_field"><span>&#9947</span></button>
                         </form>
-                        <button id="button1" onclick="createUser()" class="btn">Auszubildenden erstellen</button>
-                        <button id="button2" onclick="" class="btn">Auszubildenden Löschen</button>
-                        <button id="button3" class="btn">Ω</button>
                     </div>
             </div>
                     <div class="table_header">
@@ -49,10 +44,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               <!-- <tr class="table-row-content" id="table-content">
+                                <tr class="table-row-content" id="table-content">
                                     <td id="name"><a href="#">Ben Louis Montag</a></td>
                                     <td id="ausbilder">N.Heim</td>
-                                </tr>-->
+                                </tr>
                             </tbody>
                         </table>
                     </div>
