@@ -18,9 +18,7 @@
 
 /* tags */
 body {
-	display: flex;
 	justify-content: center;
-	align-items: center;
 	min-height: 100vh;
 	background: var(--body_background_color);
 }
