@@ -17,7 +17,7 @@ function GenerateNavBar(){
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
                         </li>
-                        <li class="nav-item"><a href="#">Nachweise</a>
+                        <li class="nav-item"><a href="nachweis_uebersicht.html">Nachweise</a>
                         </li>
                     </ul>`;
             break;
@@ -29,7 +29,7 @@ function GenerateNavBar(){
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
                         </li>
-                        <li class="nav-item"><a href="#">Auszubildene</a>
+                        <li class="nav-item"><a href="azubi_uebersicht.html">Auszubildene</a>
                         </li>
                     </ul>`;
             break;
@@ -41,7 +41,7 @@ function GenerateNavBar(){
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
                         </li>
-                        <li class="nav-item"><a href="#">Auszubildene</a>
+                        <li class="nav-item"><a href="azubi_uebersicht.html">Auszubildene</a>
                         </li>
                     </ul>`;
             break;
@@ -53,7 +53,7 @@ function GenerateNavBar(){
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
                         </li>
-                        <li class="nav-item"><a href="#">Auszubildene</a>
+                        <li class="nav-item"><a href="azubi_uebersicht.html">Auszubildene</a>
                         </li>
                         <li class="nav-item"><a href="mangmentAndConfiguration.html">Konfiguration</a>
                         </li>
@@ -67,7 +67,7 @@ function GenerateNavBar(){
                 <ul class="navbar-nav">
                     <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
                     </li>
-                    <li class="nav-item"><a href="#">Auszubildene</a>
+                    <li class="nav-item"><a href="azubi_uebersicht.html">Auszubildene</a>
                     </li>
                     <li class="nav-item"><a href="mangmentAndConfiguration.html">Konfiguration</a>
                     </li>
