@@ -1,4 +1,3 @@
-@ -0,0 +1,67 @@
 window.onload = function() {
     GenerateNavBar();
 }

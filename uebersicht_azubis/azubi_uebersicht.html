@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../uebersicht_nachweise/ubersicht_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../nav_bar/navbarcss.css">
+    <link rel="stylesheet" href="../Frontend/navbarStyle.css">
     <script src="../uebersicht_nachweise/script.js"></script>
     <script src="../uebersicht_azubis/azubi_view_scripts.js"></script>
     <script src="../uebersicht_nachweise/fetchapi.js"></script>
@@ -17,36 +18,11 @@
 </head>
 <!--<body onload="testFetchJsoNP('http://10.133.14.146:8080/session')">-->
 <body onload="fetchSession()">
+<nav class="navbar" id="navbarList"></nav>
 <div class="overview-table_header">
         <div class="h1+bg">
             <div class="tableBackground">
                 <div class="head">
-                    <header>
-                        <nav class="navbar">
-                            <div class="logo">
-                            <a href="#"><img id="logo" src="https://www.gso-koeln.de/wp-content/uploads/2020/06/cropped-LOGO-GSO_neu.png" alt=""></a>
-                            </div>
-                            <ul class="navbar-nav">
-                                <li class="nav-item"><a href="#">Startseite</a>
-                                    <ul class="submenu">
-                                        <li id="blablabla" class="nav-submenu-item"><a  id="link"  onclick="createUser()"  href="#">Abmelden</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="#">Nachweise</a>
-                                    <ul class="submenu">
-                                        <li class="nav-submenu-item"><a href="#">Übersicht</a></li>
-                                        <li class="nav-submenu-item"><a href="#">Nachweis erstellen</a></li>
-                                        <li class="nav-submenu-item"><a href="#">Konfigurieren</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="#">Über uns</a>
-                                    <ul class="submenu">
-                                        <li class="nav-submenu-item"><a href="#">Kontakt</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </header>
             </div>
                     <label>Übersicht der Auszubildenden</label>
                 <div class="azubi_info">
@@ -73,10 +49,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="table-row-content" id="table-content">
+                               <!-- <tr class="table-row-content" id="table-content">
                                     <td id="name"><a href="#">Ben Louis Montag</a></td>
                                     <td id="ausbilder">N.Heim</td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>
