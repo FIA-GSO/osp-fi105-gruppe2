@@ -17,75 +17,21 @@
     <script src="navbar.js"></script>
 </head>
 <body>
+<nav class="navbar" id="navbarList"></nav>
 <div class="overview-table_header">
         <div class="h1+bg">
             <div class="tableBackground">
-                <div class="head">
-                    <header>
-                        <nav class="navbar">
-                            <div class="logo">
-                            <a href="https://www.gso-koeln.de/"><img id="logo" src="https://www.gso-koeln.de/wp-content/uploads/2020/06/cropped-LOGO-GSO_neu.png" alt=""></a>
-                            </div>
-                            <ul id="navbar-navid" class="navbar-nav">
-                                <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
-                                    <ul class="submenu">
-                                        <li class="nav-submenu-item"><a href="/Frontend/login.html">Abmelden</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="#">Nachweise</a>
-                                    <ul class="submenu">
-                                        <li class="nav-submenu-item"><a href="#">Übersicht</a></li>
-                                        <li class="nav-submenu-item"><a href="#">Nachweis erstellen</a></li>
-                                        <!--<li class="nav-submenu-item"><a href="#">Auszubildenden Übersicht</a></li>-->
-                                        <li class="nav-submenu-item"><a href="#">Konfigurieren</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a href="#">Über uns</a>
-                                    <ul class="submenu">
-                                        <li class="nav-submenu-item"><a href="#">Kontakt</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!--Burger Menu-->
-                        <div id="burgerMenuid" class="burger-menu">
-                            <button onclick="" class="dropdownbutton">&#9776</button>
-                                <div class="dropdown-content menu_text" id="dropdown">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item"><a href="https://www.gso-koeln.de/">Startseite</a>
-                                            <ul class="submenu">
-                                                <li class="nav-submenu-item"><a href="/Frontend/login.html">Abmelden</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item"><a href="#">Nachweise</a>
-                                            <ul class="submenu">
-                                                <li class="nav-submenu-item"><a href="#">Übersicht</a></li>
-                                                <li class="nav-submenu-item"><a href="#">Nachweis erstellen</a></li>
-                                                <!--<li class="nav-submenu-item"><a href="#">Auszubildenden Übersicht</a></li>-->
-                                                <li class="nav-submenu-item"><a href="#">Konfigurieren</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item"><a href="#">Über uns</a>
-                                            <ul class="submenu">
-                                                <li class="nav-submenu-item"><a href="#">Kontakt</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                        </div>
-                        <!--Burger Menu-->
-                    </header>
-            </div>
-                    <label>Übersicht deiner Ausbildungsnachweise</label>
+                    <label>Übersicht der Ausbildungsnachweise</label>
+                <div class="azubi_info">
+                    <p id="name_des_azubis"> Name des Azubis</p>
+                    <p id="lehrjahr">Lehrjahr</p>
+                </div>
                     <div class="buttons-config-div">
                         <form>
                              <label for="search" class="suchfeld"></label>
                              <input type="search" name="search_field" id="search" placeholder="Search..." >
-                            <button id= "search_button" class="search_field"><span>&#9947</span></button>
+                            <button id= "search_button"  onclick="fetchSession()" class="search_field"><span>&#9947</span></button>
                         </form>
-                        <button id="button1" onclick="addTablerow()" class="btn">Nachweis erstellen</button>
-                        <button id="button2" onclick="" class="btn">Nachweise Konfigurieren</button>
-                        <button id="button3" class="btn">|{}}≠≠}{|][[[]|{}≠{|][¢[]|{</button>
                     </div>
             </div>
                     <div class="Table_header">

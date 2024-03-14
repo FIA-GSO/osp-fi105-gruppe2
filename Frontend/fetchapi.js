@@ -5,7 +5,7 @@ const data = {
 
 
 function neuenAzubianlegen(){
-    fetch("https://10.133.14.146:8080/user")
+    fetch("http://10.133.14.146:8080/user")
         .then(response=>{
             if (!response.ok){
                 throw new Error("Network response was not ok");
@@ -17,7 +17,7 @@ function neuenAzubianlegen(){
 }
 
 function neuenAzubianlegen_test(){
-    fetch("https://10.133.14.146:8080/user")
+    fetch("http://10.133.14.146:8080/user")
         .then(response=>{
             if (!response.ok){
                 throw new Error("Network response was not ok");
@@ -31,7 +31,6 @@ function fetchSession() {
     const  options = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
     };
