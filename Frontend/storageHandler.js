@@ -12,7 +12,7 @@ function setRequestedCetificate(cetificate) {
    localStorage.setItem(cetificatename, cetificate);
 }
 
-function setRequestedCetificate() {
+function getRequestedCetificate() {
   return localStorage.getItem(cetificatename);
 }
 
@@ -21,14 +21,24 @@ function removeRequestedCetificate() {
 }
 
 const studentname = "student"
-function setRequestedCetificate(student) {
+function setRequestedStudent(student) {
    localStorage.setItem(studentname, student);
 }
 
-function setRequestedCetificate() {
+function getRequestedStudent() {
   return localStorage.getItem(studentname);
 }
 
-function removeRequestedCetificate() {
+function removeRequestedStudent() {
   localStorage.removeItem(studentname);
 }
+
+const sessionname = "session"
+function setRequestedSession(session) {
+   localStorage.setItem(sessionname, session);
+}
+
+function getRequestedSession() {
+  return localStorage.getItem(sessionname);
+}
+
