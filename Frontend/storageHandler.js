@@ -34,11 +34,11 @@ function removeRequestedStudent() {
 }
 
 const sessionname = "session"
-function setRequestedSession(session) {
+function setSession(session) {
    localStorage.setItem(sessionname, session);
 }
 
-function getRequestedSession() {
+function getSession() {
   return localStorage.getItem(sessionname);
 }
 
