@@ -8,18 +8,18 @@
 	<body>
 		<div class="trainingCertificate-wrapper">
 				<label for="studentName">Name des/der Auszubildenen:</label>
-				<input type="text" id="studentName" value="Adrian Zubi" readonly>
+				<input type="text" id="studentName" readonly>
 				<div class="flexbox">
 					<label for="trainingYear">Ausbildungsjahr:</label>
-					<input type="number" id="trainingYear" value="3">
-					<label for="department">Name des/der Auszubildenen:</label>
-					<input type="text" id="department" value="IT">
+					<input type="number" id="trainingYear" readonly>
+					<label for="trainingName">Ausbildungs Beruf:</label>
+					<input type="text" id="trainingName" readonly>
 				</div>
 				<div class="flexbox">
 					<label for="trainingWeekStart">Ausbildungswoche vom:</label>
-					<input type="date" id="trainingWeekStart" value="2023-01-12">
+					<input type="date" id="trainingWeekStart" readonly>
 					<label for="trainingWeekEnd">bis:</label>
-					<input type="date" id="trainingWeekEnd" value="2023-01-18">
+					<input type="date" id="trainingWeekEnd" readonly>
 				</div>
 				<table class="trainingCertificateTable" id="trainingCertificateTable">
 					<tr class="tableHeader">
@@ -29,7 +29,7 @@
 						<th class="tableHeaderCell">Gesamtstunden</th>
 						<th class="tableHeaderCell">Abteilung</th>
 					</tr>
-						<tr class="tableContent monday">
+						<tr class="tableContent monday top">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayMonday" >Montag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
@@ -49,7 +49,7 @@
 							<button onclick="addContentRow('Monday')" class="addRowButton">+</button>
 						</td>
 					</tr>
-						<tr class="tableContent tuesday">
+						<tr class="tableContent tuesday top">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayTuesday" >Dienstag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
@@ -69,7 +69,7 @@
 							<button onclick="addContentRow('Tuesday')" class="addRowButton">+</button>
 						</td>
 					</tr>
-						<tr class="tableContent wednesday">
+						<tr class="tableContent wednesday top">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayWednesday" >Mittwoch</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
@@ -89,7 +89,7 @@
 							<button onclick="addContentRow('Wednesday')" class="addRowButton">+</button>
 						</td>
 					</tr>
-						<tr class="tableContent thursday">
+						<tr class="tableContent thursday top">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayThursday" >Donnerstag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
@@ -109,7 +109,7 @@
 							<button onclick="addContentRow('Thursday')" class="addRowButton">+</button>
 						</td>
 					</tr>
-						<tr class="tableContent friday">
+						<tr class="tableContent friday top">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDayFriday" >Freitag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
@@ -129,7 +129,7 @@
 							<button onclick="addContentRow('Friday')" class="addRowButton">+</button>
 						</td>
 					</tr>
-						<tr class="tableContent saturday">
+						<tr class="tableContent saturday top">
 							<td rowspan="2" class="tableWeekDay" id="tableWeekDaySaturday" >Samstag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
@@ -153,17 +153,17 @@
 						<td class="totalTableContentContent" colspan="3">
 						</td>
 						<td class="totalTableContentContent">
-							<input type="number" value="40" readonly>
+							<input type="number" value="40">
 						</td>
 						<td class="totalTableContentContent">
-							<input type="text" value="Adrian Zubi" readonly>
+							<input type="text" value="Adrian Zubi">
 						</td>
 					</tr>
 				</table>
 				<div class="btnBox">
-					<button onclick="GetCertificateAsJson()" class="btn">Speichern und Abschicken</button>
-					<button class="btn">Speichern</button>
-					<button class="btn">Abbrechen</button>
+					<button onclick="GetCertificateAsJson(true)" class="btn">Speichern und Abschicken</button>
+					<button onclick="GetCertificateAsJson(false)" class="btn">Speichern</button>
+					<button onclick="GoToOverview()" class="btn">Abbrechen</button>
 				</div>
 		</div>
 	</body>

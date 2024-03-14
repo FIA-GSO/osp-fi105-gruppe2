@@ -1,8 +1,12 @@
+window.onload = function() {
+    SetHeaderData();
+}
+
 function addContentRow(day) {
     //Add Row
     document.getElementById(day + 'AddRow')
                 .insertAdjacentHTML("beforebegin",
-                    `<tr class="tableContent">
+                    `<tr class="tableContent `+ day.toLowerCase() +`">
                         <td>
                             <textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
                         </td>
@@ -25,8 +29,87 @@ function addContentRow(day) {
     department.rowSpan = newDepartmentRowSpan;
 }
 
+function GoToOverview(){
+    window.location.href = 'https://stackoverflow.com/questions/1226714/how-to-get-the-browser-to-navigate-to-url-in-javascript';
+}
 
-window.onerror = function(message, source, lineno, colno, error) {
-    console.error("Error:", message, "at", source, "line:", lineno, "column:", colno, error);
-    return true; // Prevent default error handling
-};
+function GetCertificateAsJson(proofRequested) {
+    function GetEntries (day) {
+      
+        var content = document.getElementsByClassName("tableContent " + day.toLowerCase()); 
+        let entries = new Array();;
+        for(let i = 0; i < content.length; i++){
+            let workDone = content[i].children.length > 3 ? content[i].children[1].children[0].value : content[i].children[0].children[0].value;
+            let hours = content[i].children.length > 3 ? content[i].children[2].children[0].value :  content[i].children[1].children[0].value;
+                    entries.push(
+                        {
+                            workDone: workDone,
+                            hours: hours
+                        }
+                    );
+                }
+                return entries;
+    }
+
+    function GetDepartment (day) {
+        var department = document.getElementById("department" + day).children[0].value;
+        return department;
+    }
+
+      var contentJson = {
+        monday: {
+            entries: GetEntries('Monday'),
+            department: GetDepartment('Monday')
+        },
+        tuesday: {
+            entries: GetEntries('Tuesday'),
+            department: GetDepartment('Tuesday')
+        },
+        wednesday: {
+            entries: GetEntries('Wednesday'),
+            department: GetDepartment('Wednesday')
+        },
+        thursday: {
+            entries: GetEntries('Thursday'),
+            department: GetDepartment('Thursday')
+        },
+        friday: {
+            entries: GetEntries('Friday'),
+            department: GetDepartment('Friday')
+        },
+        saturday: {
+            entries: GetEntries('Saturday'),
+            department: GetDepartment('Saturday')
+          },
+        requested: proofRequested
+      }
+
+      SendRequest(contentJson);
+}
+
+//To be Done
+function SendRequest(content){
+
+}
+
+//To be Done
+function SetHeaderData(){
+    document.getElementById('studentName').value = "Adrian";
+    document.getElementById('trainingYear').value = "3";
+    document.getElementById('trainingName').value = "IT";
+    document.getElementById('trainingWeekStart').value = "2023-10-08";
+    document.getElementById('trainingWeekEnd').value = "2023-10-15";
+}
+
+// To be Done
+function SetComment(comment) {
+    if(comment == null) {
+        return;
+    }
+    document.getElementById('trainingCertificateTable').insertAdjacentHTML("afterend",
+    `				
+    <div class="commentArea">
+        <label for="comment">Kommentar:</label>
+        <textarea id="comment" class="comment" readonly>` + comment +`</textarea>
+    </div>`);
+}
