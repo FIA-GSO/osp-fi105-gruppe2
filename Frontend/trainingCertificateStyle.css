@@ -8,6 +8,9 @@ table, th, td {
 	color: var(--content_headings);
 	width: auto;
 	padding: 30px 40px;
+	margin-left: 20px;
+    margin-right: 20px;
+	display: grid;
 }
 
 /* trainingCertificate-form */
