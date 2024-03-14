@@ -2,6 +2,6 @@ function setRole(role) {
    localStorage.setItem("role", role);
 }
 
-function getRole(role) {
+function getRole() {
   localStorage.getRole("role");
 }
