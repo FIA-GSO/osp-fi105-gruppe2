@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Übersicht | Ausbildungsnachweise</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../Frontend/mainStyle.css">
+    <link rel="stylesheet" href="ubersicht_azubis_style.css">
+    <link rel="stylesheet" href="ubersicht_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../nav_bar/navbarcss.css">
+    <link rel="stylesheet" href="navbarStyle.css">
+    <script src="script.js"></script>
+    <script src="azubi_view_scripts.js"></script>
+    <script src="fetchapi.js"></script>
+    <script src="roleHandler.js"></script>
+    <script src="navbar.js"></script>
+</head>
+<body>
+<nav class="navbar" id="navbarList"></nav>
+<div class="overview-table_header">
+        <div class="h1+bg">
+            <div class="tableBackground">
+                    <label>Übersicht der Ausbildungsnachweise</label>
+                <div class="azubi_info">
+                    <p id="name_des_azubis"> Name des Azubis</p>
+                    <p id="lehrjahr">Lehrjahr</p>
+                </div>
+                    <div class="buttons-config-div">
+                        <form>
+                             <label for="search" class="suchfeld"></label>
+                             <input type="search" name="search_field" id="search" placeholder="Search..." >
+                            <button id= "search_button"  onclick="fetchSession()" class="search_field"><span>&#9947</span></button>
+                        </form>
+                    </div>
+            </div>
+                    <div class="Table_header">
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name des Auszubildenden</th>
+                                    <th scope="col">Name des Ausbilders</th>
+                                    <th scope="col">Datum der Abgabe</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row-content" id="table-content">
+                                    <td id="name"><a href="#">Ben Louis Montag</a></td>
+                                    <td id="ausbilder">N.Heim</td>
+                                    <td id="date">21.08.2023</td>
+                                    <!--img for correct-->
+                                    <!--<td id="image"><img src="files/correct.png" alt="GG"></td>-->
+                                    <!--img for wrongt-->
+                                    <!--<td id="image_wrong"><img src="files/wrong.png" height="25px" width="25x"></td>-->
+                                    <!--img for wrongt-->
+                                    <td id="image_waiting"><img src="files/waiting.png" height="25px" width="25x" alt=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+        </div>
+</div>
+</body>
+</html>

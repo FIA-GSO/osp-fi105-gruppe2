@@ -1,0 +1,120 @@
+:root {
+	--content_background_color: #ffffff;
+	--body_background_color: #dddddd;
+	--content_headings: #242323;
+	--content_border_color: #6f6e6e;
+	--content_input_placeholder_color: #8c8b8b;
+	--color_accent: #5b9bd5;
+}
+
+.navbar {
+    background-color: #fdfdfd;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display:  flex;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.navbar-nav {
+    display: inline-flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0 50px;
+    margin:50px 30px;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 175px;
+}
+
+.nav-item a {
+    color: #42424a;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.nav-item a:hover {
+    background: var(--color_accent);
+    color: #d7cccc;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+header ul .submenu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 6px;
+    width: auto;
+    background-color: #ffffff;
+    box-shadow: 0 20px 45px #00000020;
+    transition: all ease 0.4s;
+    opacity: 0;
+    z-index: -999;
+    flex-direction: column;
+    align-items: center;
+}
+header ul li:hover .submenu{
+    z-index: 999;
+    opacity: 1;
+    margin-top: 15px;
+}
+.nav-submenu-item{
+    margin: 15px 20px;
+}
+
+img#logo{
+    max-width: 60%;
+}
+
+@media screen and (max-width: 1375px) {
+    header .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-item {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    header ul li:hover .submenu {
+        z-index: 99;
+        opacity: 1;
+    }
+    ul.submenu{
+        margin-left: 15%
+    }
+
+    nav.navbar{
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    .nav-item{
+        margin: 15px 20px;
+    }
+    .logo img{
+        display: flex;
+        margin-left: 25%;
+        justify-content: center;
+    }
+}

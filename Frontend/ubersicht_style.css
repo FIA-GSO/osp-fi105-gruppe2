@@ -1,0 +1,204 @@
+/*Übersicht CSS*/
+
+.custom-logo-gso{
+	margin-left: 10px;
+}
+
+.tableBackground {
+	width: 100%;
+    background: #fdfdfd;
+	border-style: solid;
+	border-color: #242323;
+	border-width: 1px;
+	height: 100%;
+	align-items: center;
+	display:inline-block;
+	justify-content: space-evenly;
+	padding: 10px 0 0 ;
+}
+
+.h2 {
+	color: #242323;
+    font-size: 30px;
+    font-weight: 600;
+	margin: 10px 38%;
+	text-align: center;
+	white-space: nowrap;
+	white-space-treatment: line-through;
+	background: #8c8b8b;
+	width: 100%;
+	height: 100px;
+}
+
+.h1\+bg{
+	/*margin-bottom: 80%;*/
+	width: 100%;
+	align-items: center;
+	display: inline-block;
+	justify-content: center;
+}
+
+
+Table th {
+	background: #efebeb;
+    border-style: solid;
+    border-radius: 9px;
+    border-color: #242323;
+    border-width: 1px;
+    width: 90%;
+	height: 100%;
+	padding: 10px 10px 10px 10px;
+	/*box-shadow: 4px 4px 4px aqua;*/
+	box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px, rgb(51, 51, 51) 0 0 0 2px,
+	inset #c0c0c0 0  0 8px 4px;
+	font-size: 14px;
+
+}
+
+Table  td {
+	background: #efebeb;
+    border-style: solid;
+    border-color: #242323;
+    border-width: 1px;
+    width: 90%;
+	padding: 10px 10px 10px 10px;
+	border-radius: 4px;
+	justify-content: center;
+	text-align: center;
+	font-size: 20px;
+}
+.overview-table_header {
+	margin: 0 1% 98%;
+}
+Table td img {
+	width: 40px;
+    height: 40px;
+}
+
+td#name {
+	text-align: center;
+}
+
+.buttons-config-div {
+	display: flex;
+	justify-content: center;
+	margin: 4% auto  1em;
+}
+
+button {
+	border-radius: 3px;
+	width: 200%;
+	height: 220%;
+	box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+	text-align: center;
+	font-size: 20px;
+	padding: 0.5rem 0;
+	z-index: 777;
+	position: relative;
+	margin: 5px 1% 0 ;
+	justify-content: center;
+	background: var(--color_accent);
+    color: #111010;
+	display: inline-block;
+}
+
+.search {
+	border: #242323 1px solid;
+	width: 10%;
+	height: 6%;
+	margin: 0 10%;
+}
+
+#search{
+	height : 25px;
+	padding: 2px;
+	font-size: 16px;
+	border-radius: 3px;
+	margin-left: 14px;
+	--content_input_placeholder_color: black;
+}
+
+#search_button {
+	display: contents;
+	border-radius: 50%;
+	width: 10px;
+	height: 10px;
+	background: none;
+	font-size: 45px !important;
+}
+
+input#search{
+	margin-top: 10px;
+	height: 35px;
+	text-align: center;
+}
+
+label {
+	margin-top: 3%;
+	font-size: 55px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+form {
+	display: flex;
+    justify-content: center;
+	padding: 13px 0;
+}
+
+span {
+	transform: rotate(32grad);
+}
+
+span:hover {
+	transform: rotate(0deg);
+	opacity: 0.5;
+	border-radius: 75%;
+}
+
+table{
+	margin: 10px 0 0 ;
+}
+
+/*Hide things*/
+.burger-menu{
+	display: none;
+}
+#button3{
+	display: none;
+}
+#button2{
+	display: none;
+}
+.azubi_info{
+	display: none;
+}
+
+/*links*/
+a {
+	text-decoration: none;
+    color: #242323;
+}
+
+@media sceen and (max-width: 1340px){
+}
+
+@media screen and (max-width: 768px){
+			ul.navbar-nav{
+			display: none;
+	}
+	        label {
+			font-size: 25px;
+	}
+		.burger-menu {
+			display:block;
+			margin-right:20%;
+	}
+		input#search{
+			max-width: 60%;
+	}
+		.nav-item{
+			margin-top: 10px;
+		}
+}
