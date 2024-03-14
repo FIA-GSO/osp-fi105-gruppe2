@@ -7,13 +7,16 @@
 	<link rel="stylesheet" href="navbarStyle.css">
 	<script src="approve.js"></script>
 	<script src="navbar.js"></script>
+	<script src="roleHandler.js"></script>
 	<body>
 		<nav class="navbar" id="navbarList">
 		</nav>
 		<hr>
 		<div class="trainingCertificate-wrapper">
-				<label for="studentName">Name des/der Auszubildenen:</label>
-				<input type="text" id="studentName" readonly>
+				<div class="flexbox">
+					<label for="studentName">Name des/der Auszubildenen:</label>
+					<input type="text" id="studentName" readonly>
+				</div>
 				<div class="flexbox">
 					<label for="trainingYear">Ausbildungsjahr:</label>
 					<input type="number" id="trainingYear" readonly>
@@ -37,91 +40,91 @@
 						<tr class="tableContent monday top">
 							<td class="tableWeekDay" id="tableWeekDayMonday" >Montag</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox" readonly></textarea>
 							</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden" readonly></textarea>
 							</td>
 							<td id="trainingTotalHoursMonday">
-								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden" readonly>
 							</td>
 							<td id="departmentMonday">
-								<input class="department" type="text" placeholder="Abteilung">
+								<input class="department" type="text" placeholder="Abteilung" readonly>
 							</td>
 						</tr>
 						<tr class="tableContent tuesday top">
 							<td class="tableWeekDay" id="tableWeekDayTuesday" >Dienstag</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox" readonly></textarea>
 							</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden" readonly></textarea>
 							</td>
 							<td id="trainingTotalHoursTuesday">
-								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden" readonly>
 							</td>
 							<td id="departmentTuesday">
-								<input class="department" type="text" placeholder="Abteilung">
+								<input class="department" type="text" placeholder="Abteilung" readonly>
 							</td>
 						</tr>
 						<tr class="tableContent wednesday top">
 							<td class="tableWeekDay" id="tableWeekDayWednesday" >Mittwoch</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox" readonly></textarea>
 							</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden" readonly></textarea>
 							</td>
 							<td id="trainingTotalHoursWednesday">
-								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden" readonly>
 							</td>
 							<td id="departmentWednesday">
-								<input class="department" type="text" placeholder="Abteilung">
+								<input class="department" type="text" placeholder="Abteilung" readonly>
 							</td>
 						</tr>
 						<tr class="tableContent thursday top">
 							<td class="tableWeekDay" id="tableWeekDayThursday" >Donnerstag</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox" readonly></textarea>
 							</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden" readonly></textarea>
 							</td>
 							<td id="trainingTotalHoursThursday">
-								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden" readonly>
 							</td>
 							<td id="departmentThursday">
-								<input class="department" type="text" placeholder="Abteilung">
+								<input class="department" type="text" placeholder="Abteilung" readonly>
 							</td>
 						</tr>
 						<tr class="tableContent friday top">
 							<td class="tableWeekDay" id="tableWeekDayFriday" >Freitag</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox" readonly></textarea>
 							</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden" readonly></textarea>
 							</td>
 							<td id="trainingTotalHoursFriday">
-								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden" readonly>
 							</td>
 							<td id="departmentFriday">
-								<input class="department" type="text" placeholder="Abteilung">
+								<input class="department" type="text" placeholder="Abteilung" readonly>
 							</td>
 						</tr>
 						<tr class="tableContent saturday top">
 							<td class="tableWeekDay" id="tableWeekDaySaturday" >Samstag</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
+								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox" readonly></textarea>
 							</td>
 							<td class="activitieContent">
-								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden"></textarea>
+								<textarea class="trainingActivitiesHours" type="text" placeholder="Einzelstunden" readonly></textarea>
 							</td>
 							<td id="trainingTotalHoursSaturday">
-								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden">
+								<input class="trainingTotalHours" type="number" placeholder="Gesamtstunden" readonly>
 							</td>
 							<td id="departmentSaturday">
-								<input class="department" type="text" placeholder="Abteilung">
+								<input class="department" type="text" placeholder="Abteilung" readonly>
 							</td>
 						</tr>
 					<tr class="totalTableContent">
@@ -140,8 +143,8 @@
 					<textarea id="comment" class="comment"></textarea>
 				</div>
 				<div class="btnBox">
-					<button onclick="GetCertificateAsJson(true)" class="btn">Nachweis annehmen</button>
-					<button onclick="GetCertificateAsJson(false)" class="btn">Nachweis ablehnen</button>
+					<button onclick="acceptCertificate(true)" class="btn">Nachweis annehmen</button>
+					<button onclick="acceptCertificate(false)" class="btn">Nachweis ablehnen</button>
 					<button onclick="GoToOverview()" class="btn">Abbrechen</button>
 				</div>
 		</div>
