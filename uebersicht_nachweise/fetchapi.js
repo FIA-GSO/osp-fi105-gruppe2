@@ -5,7 +5,7 @@ const data = {
 
 
 function neuenAzubianlegen(){
-    fetch("https://localhost:8080/user")
+    fetch("https://10.133.14.146:8080/user")
         .then(response=>{
             if (!response.ok){
                 throw new Error("Network response was not ok");
@@ -17,7 +17,7 @@ function neuenAzubianlegen(){
 }
 
 function neuenAzubianlegen_test(){
-    fetch("https://localhost:8080/user")
+    fetch("https://10.133.14.146:8080/user")
         .then(response=>{
             if (!response.ok){
                 throw new Error("Network response was not ok");
@@ -55,8 +55,8 @@ function  createUser() {
         email: 'email@example.com',
         password: "TESTESTTEST",
         role: "Azubi",
-        vorname: "string",
-        nachname: "string",
+        vorname: "penis",
+        nachname: "penis2",
         cookie: "JSESSIONID=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZXNzaW9uIiwibmJmIjoxNzA5ODA4NTY2LCJpc3MiOiJuYWNod2Vpc2VCYWNrZW5kIiwiZXhwIjoxNzA5ODk0OTY1LCJ1c2VySWQiOjEsImlhdCI6MTcwOTgwODU2NX0.4P2f-XLQPzYOlW1NdfNyV_9uae1WonNGJtPwvcv9H0k"
     };
 
