@@ -1,4 +1,3 @@
-@ -0,0 +1,67 @@
 window.onload = function() {
     GenerateNavBar();
 }
@@ -7,10 +6,10 @@ window.onload = function() {
 function GenerateNavBar(){
 
     let navbarHTML = ""
-    let role = "Administartor"
+    let role = getRole();
 
     switch(role) {
-            case "Auszubildener" :
+            case "Azubi" :
                 navbarHTML = `
                     <div class="logo">
                         <a href="https://www.gso-koeln.de/"><img id="logo" src="https://www.gso-koeln.de/wp-content/uploads/2020/06/cropped-LOGO-GSO_neu.png" alt=""></a>
