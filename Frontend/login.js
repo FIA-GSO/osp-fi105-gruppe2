@@ -25,6 +25,11 @@ function handleSubmit(event) {
         document.getElementById('errorLabel').insertAdjacentHTML("afterbegin", response.error);
         return;
     }
+
+    let user = fetch(host + '/user' + json.name)
+    .then(res => res.json());
+
+    setRole(user.role);
 }
 
 function getJsonFromForm(form) {
