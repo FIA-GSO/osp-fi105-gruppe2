@@ -35,9 +35,9 @@ function handleSubmit(event) {
     // Rolle speichern
     let user = fetch(host + '/user/' + json.name)
     .then(res => res.json());
-
     setRole(user.role);
     
+    //Zur Seite gehen
     switch(user.role) {
         case "Azubi":
             window.location.href = '...';
