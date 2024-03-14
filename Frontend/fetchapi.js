@@ -4,33 +4,50 @@ const data = {
 };
 
 
-function neuenAzubianlegen(){
-    fetch("http://10.133.14.146:8080/user")
+
+function fetchSession(){
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    };
+
+    fetch("http://10.133.14.146:8080/session/root", options)
         .then(response=>{
             if (!response.ok){
-                throw new Error("Network response was not ok");
+                throw new Error("Network response was not ok: ERROR");
             }
-            console.log('RESPONSE:',response);
-            return response.json();
+            return console.log(response);
         })
 
 }
 
-function neuenAzubianlegen_test(){
-    fetch("http://10.133.14.146:8080/user")
+function api_zugriff(){
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    };
+
+    fetch("http://10.133.14.146:8080/session/root", options)
         .then(response=>{
             if (!response.ok){
-                throw new Error("Network response was not ok");
+                throw new Error("Network response was not ok: ERROR");
             }
-            return response.json();
+            return console.log(response.body);
         })
 
 }
 
-function fetchSession() {
+function fetchSession_OLD() {
     const  options = {
         method: 'POST',
         headers: {
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
     };
@@ -60,13 +77,13 @@ function  createUser() {
     };
 
     const  options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(),
+        body: JSON.stringify(create_data),
     };
-    fetch('http://10.133.14.146:8080/', options)
+    fetch('http://10.133.14.146:8080/user', options)
         .then(response=>{
             console.log('RESPONSE:',response);
         })
