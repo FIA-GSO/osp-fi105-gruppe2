@@ -4,9 +4,10 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="mainStyle.css">
    <link rel="stylesheet" href="mangmentAndConfigurationStyle.css">
+   <script src="mangmentAndConfiguration.js"></script>
    <body>
     <div class="mangmentAndConfiguration-wrapper">
-        <div class="createUser-wrapper">
+        <form class="createUser-wrapper" id="createUserForm">
             <h1>Nutzer anlegen</h1>
             <div class="input-wrapper">
                 <div class="flexbox">
@@ -14,13 +15,13 @@
                         <label for="firstName">Vorname:</label>
                     </div>
                     <div class="right">
-                        <input type="text" id="firstName" placeholder="Vorname angeben">
+                        <input name="vorname" type="text" id="firstName" placeholder="Vorname" required>
                     </div>
                     <div class="left">
                         <label for="lastName">Nachname:</label>
                     </div>
                     <div class="right">
-                        <input type="text" id="lastName" placeholder="Nachname angeben">
+                        <input name="nachname" type="text" id="lastName" placeholder="Nachname" required>
                     </div>
                 </div>
                 <div class="flexbox">
@@ -28,13 +29,13 @@
                         <label for="email">E-Mail:</label>
                     </div>
                     <div class="right">
-                        <input type="text" id="email" placeholder="E-Mail angeben">
+                        <input name="email" type="text" id="email" placeholder="E-Mail" required>
                     </div>
                     <div class="left">
                         <label for="initialPassword">Initialpasswort:</label>
                     </div>
                     <div class="right">
-                        <input type="text" id="initialPassword" placeholder="Passwort angeben">
+                        <input name="password" type="text" id="initialPassword" placeholder="Initialpasswort" required>
                     </div>
                 </div>
                 <div class="flexbox">
@@ -43,10 +44,10 @@
                             <label for="role">Rolle:</label>
                         </div>
                         <div class="right">
-                            <select class="roleSelector" id="role">
-                                <option value="auszubildener">Auszubildener</option>
+                            <select name="role" class="roleSelector" id="role" required>
+                                <option value="auszubildener">Azubi</option>
                                 <option value="ausbilder">Ausbilder</option>
-                                <option value="LehrerPruefer">Lehrer / Prüfer</option>
+                                <option value="LehrerPruefer">Prüfer/Lehrer</option>
                                 <option value="administrator">Administrator</option>
                               </select>
                         </div>
@@ -54,23 +55,23 @@
                 </div>
             </div>
         <div class="btnBox">
-            <button class="btn">Speichern</button>
+            <button type="submit" class="btn">Speichern</button>
         </div>
-      </div>
-    <div class="createTraining-wrapper">
+    </form>
+    <form class="createTraining-wrapper" id="createTrainingForm">
         <h1>Ausbildung anlegen</h1>
         <div class="flexbox">
             <div class="left">
                 <label for="usernameInstructor">Nutzername von Ausbilder:</label>
             </div>
             <div class="right">
-                <input type="text" id="usernameInstructor" placeholder="Nutzername von Ausbilder angeben">
+                <input  name="instructorName" type="text" id="usernameInstructor" placeholder="Ausbilder" required>
             </div>
             <div class="left">
                 <label for="usernameApprentice">Nutzername von Auszubildenen:</label>
             </div>
             <div class="right">
-                <input type="text" id="usernameApprentice" placeholder="Nutzername von Auszubildenen angeben">
+                <input name="apprenciceName" type="text" id="usernameApprentice" placeholder="Auszubildenen" required>
             </div>
         </div>
         <div class="flexbox">
@@ -78,19 +79,19 @@
                 <label for="jobTitle">Berufsbezeichnung der Ausbildung:</label>
             </div>
             <div class="right">
-                <input type="text" id="jobTitle" placeholder="Berufsbezeichnung angeben">
+                <input name="profession" type="text" id="jobTitle" placeholder="Berufsbezeichnung" required>
             </div>
             <div class="left">
                 <label for="trainingStart">Beginn der Ausbildung:</label>
             </div>
             <div class="right">
-                <input type="date"class="trainingStart" id="trainingStart">
+                <input name="start" type="date"class="trainingStart" id="trainingStart" required>
             </div>
         </div>
         <div class="btnBox">
-            <button class="btn">Speichern</button>
+            <button type="submit" class="btn">Speichern</button>
         </div>
-    </div>
+    </form>
     </div>
    </body>
 </html>
