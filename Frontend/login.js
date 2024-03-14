@@ -30,6 +30,16 @@ function handleSubmit(event) {
     .then(res => res.json());
 
     setRole(user.role);
+    
+    switch(user.role) {
+        case "Azubi":
+            window.location.href = '...';
+            break;
+            default:
+                window.location.href = '...';
+                break;
+    }
+    
 }
 
 function getJsonFromForm(form) {
