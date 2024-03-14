@@ -1,25 +1,20 @@
-window.onload = function() {
-    let form = document.getElementById('loginForm');
-    form.addEventListener('submit', handleSubmit);
-
-    let passwortVergessen = document.getElementById('passwortVergessenLink');
-    passwortVergessen.addEventListener('click', handlePasswortVergessen);
-}
-
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
     let json = getJsonFromForm(event.target);
 
     let apiCall = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept' : 'text/plain'
         },
-        body: json.password
+        body: {
+            'password': json.password
+        }
     }
 
-    let response = fetch(host + '/session/' + json.name, apiCall)
-        .then(res => res.json());
+    let result = await fetch(host + '/session/' + json.name, apiCall)
+    let response = await result.body;
 
     if(response) {
         document.getElementById('errorLabel').insertAdjacentHTML("afterbegin", response.error);
@@ -51,7 +46,7 @@ function handleSubmit(event) {
 function getJsonFromForm(form) {
     let formData = new FormData(form);
     let object = Object.fromEntries(formData);
-    return JSON.stringify(object);
+    return object
 }
 
 function handlePasswortVergessen(){
@@ -72,4 +67,12 @@ function handlePasswortVergessen(){
     }
 
     alert(text);
+}
+
+window.onload = function() {
+    let form = document.getElementById('loginForm');
+    form.addEventListener('submit',handleSubmit);
+
+    let passwortVergessen = document.getElementById('passwortVergessenLink');
+    passwortVergessen.addEventListener('click', handlePasswortVergessen);
 }
