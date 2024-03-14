@@ -35,7 +35,7 @@ function fetchSession() {
         },
         body: JSON.stringify(data),
     };
-    fetch('http://10.133.14.146:8080/session/root', options)
+    fetch('http://10.133.14.146/session/root', options)
         .then(response=>{
             console.log('RESPONSE:',response);
         })
@@ -65,7 +65,7 @@ function  createUser() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(create_data),
+        body: JSON.stringify(),
     };
     fetch('http://10.133.14.146:8080/', options)
         .then(response=>{

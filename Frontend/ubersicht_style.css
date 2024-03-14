@@ -36,7 +36,6 @@
 	align-items: center;
 	display: inline-block;
 	justify-content: center;
-	box-shadow: 10px 10px 8px rgba(141, 141, 125, 0.13);
 }
 
 
@@ -69,7 +68,6 @@ Table  td {
 	font-size: 20px;
 }
 .overview-table_header {
-	width: 100%;
 	margin: 0 1% 98%;
 }
 Table td img {
