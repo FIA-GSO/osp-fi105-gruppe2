@@ -15,10 +15,10 @@ function handleSubmit(event) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: json
+        body: json.password
     }
 
-    let response = fetch('API-Rout', apiCall)
+    let response = fetch('/session/' + json.name, apiCall)
         .then(res => res.json());
 
     if(response) {
