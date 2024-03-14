@@ -1,4 +1,3 @@
-@ -0,0 +1,175 @@
 <!DOCTYPE html>
 <html>
 	<meta charset="UTF-8">
@@ -6,12 +5,12 @@
 	<link rel="stylesheet" href="mainStyle.css">
 	<link rel="stylesheet" href="trainingCertificateStyle.css">
 	<link rel="stylesheet" href="navbarStyle.css">
-	<script src="tainingCertificate.js"></script>
+	<script src="approve.js"></script>
 	<script src="navbar.js"></script>
 	<body>
-	<nav class="navbar" id="navbarList">
-	</nav>
-	<hr>
+		<nav class="navbar" id="navbarList">
+		</nav>
+		<hr>
 		<div class="trainingCertificate-wrapper">
 				<label for="studentName">Name des/der Auszubildenen:</label>
 				<input type="text" id="studentName" readonly>
@@ -36,7 +35,7 @@
 						<th class="tableHeaderCell">Abteilung</th>
 					</tr>
 						<tr class="tableContent monday top">
-							<td rowspan="2" class="tableWeekDay" id="tableWeekDayMonday" >Montag</td>
+							<td class="tableWeekDay" id="tableWeekDayMonday" >Montag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
@@ -50,13 +49,8 @@
 								<input class="department" type="text" placeholder="Abteilung">
 							</td>
 						</tr>
-					<tr id="MondayAddRow">
-						<td colspan="4" class="addRowCell">
-							<button onclick="addContentRow('Monday')" class="addRowButton">+</button>
-						</td>
-					</tr>
 						<tr class="tableContent tuesday top">
-							<td rowspan="2" class="tableWeekDay" id="tableWeekDayTuesday" >Dienstag</td>
+							<td class="tableWeekDay" id="tableWeekDayTuesday" >Dienstag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
@@ -70,13 +64,8 @@
 								<input class="department" type="text" placeholder="Abteilung">
 							</td>
 						</tr>
-					<tr id="TuesdayAddRow">
-						<td colspan="4" class="addRowCell">
-							<button onclick="addContentRow('Tuesday')" class="addRowButton">+</button>
-						</td>
-					</tr>
 						<tr class="tableContent wednesday top">
-							<td rowspan="2" class="tableWeekDay" id="tableWeekDayWednesday" >Mittwoch</td>
+							<td class="tableWeekDay" id="tableWeekDayWednesday" >Mittwoch</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
@@ -90,13 +79,8 @@
 								<input class="department" type="text" placeholder="Abteilung">
 							</td>
 						</tr>
-					<tr id="WednesdayAddRow">
-						<td colspan="4" class="addRowCell">
-							<button onclick="addContentRow('Wednesday')" class="addRowButton">+</button>
-						</td>
-					</tr>
 						<tr class="tableContent thursday top">
-							<td rowspan="2" class="tableWeekDay" id="tableWeekDayThursday" >Donnerstag</td>
+							<td class="tableWeekDay" id="tableWeekDayThursday" >Donnerstag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
@@ -110,13 +94,8 @@
 								<input class="department" type="text" placeholder="Abteilung">
 							</td>
 						</tr>
-					<tr id="ThursdayAddRow">
-						<td colspan="4" class="addRowCell">
-							<button onclick="addContentRow('Thursday')" class="addRowButton">+</button>
-						</td>
-					</tr>
 						<tr class="tableContent friday top">
-							<td rowspan="2" class="tableWeekDay" id="tableWeekDayFriday" >Freitag</td>
+							<td class="tableWeekDay" id="tableWeekDayFriday" >Freitag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
@@ -130,13 +109,8 @@
 								<input class="department" type="text" placeholder="Abteilung">
 							</td>
 						</tr>
-					<tr id="FridayAddRow">
-						<td colspan="4" class="addRowCell">
-							<button onclick="addContentRow('Friday')" class="addRowButton">+</button>
-						</td>
-					</tr>
 						<tr class="tableContent saturday top">
-							<td rowspan="2" class="tableWeekDay" id="tableWeekDaySaturday" >Samstag</td>
+							<td class="tableWeekDay" id="tableWeekDaySaturday" >Samstag</td>
 							<td class="activitieContent">
 								<textarea class="trainingActivities" type="text" placeholder="Hier ist deine Textbox"></textarea>
 							</td>
@@ -150,11 +124,6 @@
 								<input class="department" type="text" placeholder="Abteilung">
 							</td>
 						</tr>
-					<tr id="SaturdayAddRow">
-						<td colspan="4" class="addRowCell">
-							<button onclick="addContentRow('Saturday')" class="addRowButton">+</button>
-						</td>
-					</tr>
 					<tr class="totalTableContent">
 						<td class="totalTableContentContent" colspan="3">
 						</td>
@@ -166,9 +135,13 @@
 						</td>
 					</tr>
 				</table>
+				<div class="commentArea">
+					<label for="comment">Kommentar:</label>
+					<textarea id="comment" class="comment"></textarea>
+				</div>
 				<div class="btnBox">
-					<button onclick="GetCertificateAsJson(true)" class="btn">Speichern und Abschicken</button>
-					<button onclick="GetCertificateAsJson(false)" class="btn">Speichern</button>
+					<button onclick="GetCertificateAsJson(true)" class="btn">Nachweis annehmen</button>
+					<button onclick="GetCertificateAsJson(false)" class="btn">Nachweis ablehnen</button>
 					<button onclick="GoToOverview()" class="btn">Abbrechen</button>
 				</div>
 		</div>
