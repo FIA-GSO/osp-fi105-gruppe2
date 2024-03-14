@@ -81,7 +81,8 @@ table, th, td {
 
 /* btnBox */
 .btnBox {
-	float: right;
+	display: flex;
+    	justify-content: flex-end;
 }
 
 /* trainingTotalHours */
